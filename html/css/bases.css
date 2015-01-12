@@ -1,0 +1,104 @@
+/*NAV-  BUTTON - INPUT -FOOTER- */
+
+*{
+    font-family: Microsoft Yahei;
+}
+/*NAV*/
+.navbar-default{
+    border:none;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.navbar-brand {
+    padding-top: 3px;
+}
+.navbar-brand img{
+    width: 195px;
+}
+.nav > li > a {
+    padding: 20px 35px;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: rgba(0, 0, 0, 0.4);
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus{
+    background-color: rgba(255, 188, 1, 1);
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus{
+    color: rgba(255, 188, 1, 1);
+}
+.navbar-toggle:hover,.navbar-toggle:focus{
+    background-color: rgba(255, 188, 1, 1);
+}
+
+
+/*BUTTON*/
+.btn{
+    border-radius: 0px;
+    margin: 0px;
+    font: inherit;
+    color: inherit;
+    overflow: visible;
+    text-transform: none;
+    line-height: inherit;
+}
+
+.btn-more{
+    color: #fff;
+    background: none;
+    padding: 4px 12px;
+    border: 1px solid #fff;
+}
+
+.btn-more:hover,.btn-more:focus{
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 4px 12px;
+    border: none;
+    font-family: Microsoft Yahei;
+}
+.btn-free{
+    color: #FFF;
+    padding: 8px 45px;
+    border: 1px solid #FFF;
+    background: #FFBC01;
+}
+
+.btn-free:hover,.btn-free:focus{
+    color: #FFBC01;
+    background:none;
+    border: 1px solid #FFBC01;
+    font-family: Microsoft Yahei;
+}
+.btn-search{
+    width: 34px;
+    height: 34px;
+    border: 1px solid #1BBC9B;
+    background: url('../img/find.png') no-repeat scroll 8px 8px #1BBC9B;
+}
+.btn-search:hover,.btn-search:focus{
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(98, 228, 201, 1);
+    background: url('../img/find.png') no-repeat scroll 8px 8px rgba(98, 228, 201, 1);
+}
+
+/*input*/
+.form-control {
+    border-radius: 0px;
+}
+
+/*footer*/
+.footer{
+    text-align: center;
+    background: #f0f0f0;
+    height: 150px;
+    padding: 30px 0px;
+    margin-top: 30px;
+}

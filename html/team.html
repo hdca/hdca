@@ -1,0 +1,634 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"
+	charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link href="/hdca/css/base.min.css" rel="stylesheet" type="text/css">
+<link href="/hdca/css/bases.css" rel="stylesheet" type="text/css">
+<link href="/hdca/css/list.css" rel="stylesheet" type="text/css">
+<link href="/hdca/css/responsive.css" rel="stylesheet" type="text/css">
+
+
+<script src="/hdca/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/hdca/public/mainScript"></script>
+
+<title>寻找施工队</title>
+
+<!--[if gt IE 6]>
+        <style type="text/css">
+            #require .ch-info {background: url(img/require-btn-ie.png);}
+        </style> 
+    <![endif]-->
+<!--[if gte IE 7]>
+        <style type="text/css">
+            #require .ch-info {background: url(img/require-btn-ie.png);}
+        </style> 
+    <![endif]-->
+<!--[if lte IE 6]>
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/ie6.min.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/ie.css">
+    <![endif]-->
+<script type="text/javascript" src="/hdca/js/base.min.js"></script>
+<!--[if lte IE 6]>
+  <script type="text/javascript" src="js/ie.js"></script>
+  <![endif]-->
+
+<script src="/hdca/js/paginator.min.js"></script>
+
+
+</head>
+<body>
+	<script src="/hdca/js/css3d.js"></script>
+
+
+
+	<#include "/common/navbar.html" parse=true encoding="UTF-8">
+	<!--end nav-->
+
+	<div class="listtittle">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="row list-tibox">
+						<div class="col-xs-12 col-md-8  list-ti">
+							<span></span>
+							<p>Construction Team</p>
+							<p>寻找施工队</p>
+						</div>
+						<div class="col-xs-12 col-md-4 search">
+							<div class="input-group">
+								<input id="searchtext" type="text" class="form-control"
+									placeholder="施工队搜索"> <span class="input-group-btn">
+									<button id="search" class="btn btn-default btn-search"
+										type="button"></button>
+								</span>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="">
+	    <div class="container">
+		<div class="row">
+		    <div class="col-xs-12 col-md-3">
+			<ul class="ch-grid" id="require">
+			    <li>
+				<div class="ch-item">
+				    <div class="ch-info">
+					<h3></h3>
+					<p>
+					    <a href="/hdca/public/teamwanted/tocreate"></a>
+					</p>
+				    </div>
+				    <div class="ch-thumb ch-img-1">
+					<a href="/hdca/public/teamwanted/tocreate">我要发布需求</a>
+				    </div>
+				</div>
+			    </li>
+			</ul>
+		    </div>
+
+		    <div class="col-xs-12 col-md-9">
+			<div class="row screen">
+			    <div id="selectList" class="screenBox screenBackground">
+				<dl>
+				    <dt>所在城市：</dt>
+				    <dd>
+					<ul class="nav nav-tabs" role="tablist" id="citytab">
+					    <!-- rev1216 start -->
+						<#list gaservice.getRegisteredCity() as x>
+						<li role="presentation"><a
+						    href="#district${x.getAreaid()}" class="citytab_li"
+						    role="tab" data-toggle="tab">${x.getName()}</a></li> </#list>
+						<!-- rev1216 end -->
+					</ul>
+				    </dd>
+				</dl>
+
+				<!-- rev1216 start -->
+				<div id="hasbeenclick" hlblocksContainer="true">
+				    <#list gaservice.getRegisteredCity() as x>
+				    <div role="tabpanel" class="tab-pane"
+					id="#district${x.getAreaid()}">
+					<dl class="listIndex" attr="服务区域" hlblockid="1">
+					    <dt>服务区域：</dt>
+					    <dd>
+						<#list x.getChildren() as y> <a href="javascript:void(0)"
+						    values2="" values1="" querykey="districtareaids"
+						    queryvalue="${y.getAreaid()?c}">${y.getName()}</a> </#list>
+					    </dd>
+					</dl>
+				    </div>
+				    </#list>
+				</div>
+				<!-- rev1216 end -->
+				<div hlblocksContainer="true">
+				    <dl class="listIndex" attr="擅长方向" hlblockid="2">
+					<dt>擅长方向：</dt>
+					<dd>
+					    <!-- rev1215 start -->
+					    <#list msgsrc.getMessage("team.type.names").split(",") as x>
+					    <a href="javascript:void(0)" values2="" values1=""
+						querykey="typeids" queryvalue="${msgsrc.getMessage("team.type.values").split(",")[x_index]}">${x}</a>
+					    </#list>
+					    <!-- rev1215 end -->
+					</dd>
+				    </dl>
+				</div>
+
+				<div class="hasBeenSelected">
+				    <dl>
+					<dt>您已选择：</dt>
+					<dd style="DISPLAY: none" class=clearDd>
+					    <div class=clearList></div>
+					    <div style="DISPLAY: none" class="eliminateCriteria">清除筛选条件</div>
+					</dd>
+				    </dl>
+				</div>
+			    </div>
+			</div>
+		    </div>
+		</div>
+	    </div>
+	</div>
+
+	<div class="teamlist">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+				<#if teamList.size() ==0>
+					您查找的区域没有施工队服务！
+				<#else>
+				
+					<#list teamList as x>
+					<div class="teamli">
+						<div class="row">
+							<div class="col-xs-5 col-md-2">
+								<img src="/hdca/img/teamscience.png">
+							</div>
+							<div class="col-xs-7 col-md-6">
+								<h3>
+									<a href="/hdca/public/team/detail?teamQuery.teamid=${x.getId()?c}">${x.getName()}</a>
+								</h3>
+								<p style="margin-top: 10px;">
+									<#list x.getBasepackages() as bp> <span class="teamspan jin">
+										${bp}<span class="dog-ear"></span>
+									</span> </#list>
+								</p>
+								<p>地址：${(team.getAddress())!"无"}</p>
+								<p>
+									<a type="button" class="btn btn-primary btn-lg btn-free"
+										data-toggle="modal" olddata-target="#offer" sraction="pricing" teamname="${x.getName()!"Anonymous"}">免费报价</a> <a
+										type="button" class="btn btn-primary btn-lg btn-free"
+										data-toggle="modal" olddata-target="#appointment" sraction="appointment"  teamname="${x.getName()!"Anonymous"}">免费预约</a>
+								</p>
+							</div>
+							<div class="col-xs-12 col-md-4">
+								<h4 style="margin: 0px 0px 15px;">擅长装修方向</h4>
+								<ul class="ch-grid">
+									<#list x.getTypes() as t>
+									<li>
+										<div class="ch-item ch-img-1">
+											<div class="ch-info-wrap">
+												<div class="ch-info">
+													<div class="ch-info-front ch-bg-${t}">
+														<p typeid="${t}">aaa</p>
+													</div>
+													<div class="ch-info-back ch-bg-${t}">
+														<p typeid="${t}">bbb</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li></#list>
+								</ul>
+							</div>
+						</div>
+						<!--end teamli-->
+					</div>
+					<!--end one team-->
+					</#list>
+					
+					</#if>
+				</div>
+				<!--col-xs-12-->
+
+				<div id="bp-example-page-url"></div>
+				<div class="col-xs-12" style="text-align: center;">
+					<nav>
+						<ul id="pagement"></ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="footer">
+		<div class="container">footer</div>
+	</div>
+	<!--end footer-->
+
+	<div class="container">
+		<div class="modal fade free" id="offer" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">免费报价</h4>
+					</div>
+					<div class="modal-body">
+						<form name=creator class="form-horizontal" role="form" id="pricingform">
+							<div class="form-group">
+								<input type="email" class="form-control" id="inputEmail3" name="pf.contactname"
+									placeholder="您的称呼">
+							</div>
+							<div class="form-group">
+								<input type="email" class="form-control" id="inputEmail3" name="pf.contactnumber"
+									placeholder="手机号码">
+							</div>
+							<input type="hidden" name="pf.customername" value="${(customer.getEmail())!"Anonymous"}">
+							<div class="form-group">为了您的利益及我们的口碑，你的隐私将被严格保密。</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary btn-free" id="free">免费报价</button>
+					</div>
+				</div>
+				<!--end modal-content-->
+			</div>
+			<!--end modal-dialog-->
+		</div>
+		<!--end modal-->
+	</div>
+	<!--end container-->
+
+	<div class="container">
+		<div class="modal fade free" id="appointment" tabindex="-1"
+			role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">免费短信预约施工队</h4>
+					</div>
+					<div class="modal-body">
+						<form name=creator class="form-horizontal" role="form" id="messageform">
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input type="text" class="form-control" id="inputEmail3" name="mf.contactname"
+										placeholder="您的称呼">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input type="text" class="form-control" id="inputEmail3" name="mf.contactnumber"
+										placeholder="手机号码">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input type="text" class="form-control" id="inputEmail3" name="mf.comment"
+										placeholder="你好！我需要预约装修，请收到短信后与我联系！">
+									<input type="hidden" name="mf.customername" value="${(customer.getEmail())!"Anonymous"}">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12">为了您的利益及我们的口碑，你的隐私将被严格保密。</div>
+
+							</div>
+
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary btn-free"
+							id="message">发送短信</button>
+					</div>
+				</div>
+				<!--end modal-content-->
+			</div>
+			<!--end modal-dialog-->
+		</div>
+		<!--end modal-->
+	</div>
+	<!--end container-->
+	<script>
+$(document).ready(function(){
+$(function(){    
+	var hlbContainer  =$("div[hlblocksContainer='true']");
+	//alert("len="+hlbContainer.length);
+	//var dlNum  =$("#selectList").find("dl");
+    for (i = 0; i < hlbContainer.length; i++) {
+        $(".hasBeenSelected .clearList").append("<div class=\"selectedInfor selectedShow\" style=\"display:none\"><span></span><label></label><em></em></div>");
+    }
+    
+    //alert("ss ="+$(".selectedShow"));
+    
+    var refresh = "true";
+    
+    //$(".listIndex a ").live("click",function(){
+    $(document).on("click", ".listIndex a", function(event){
+        var text =$(this).text();
+        var selectedShow = $(".selectedShow");
+        var textTypeIndex =$(this).parents("dl").index();
+        var hlblocksid = $(this).parents("dl").attr('hlblockid');
+        var textType =$(this).parent("dd").siblings("dt").text();
+        
+        index = hlblocksid-1;
+        
+        //alert("queryvalue="+$(this).attr("queryvalue"));
+        $.hdca.query[$(this).attr("querykey")]=$(this).attr("queryvalue");
+        window.location.replace($.hdca.getQueryString());
+        
+        //$(".clearDd").show();
+        //$(this).addClass("selected").siblings().removeClass("selected");
+        
+        //$(".selectedShow").eq(index).show();
+        //selectedShow.eq(index).find("span").text(textType);
+        //selectedShow.eq(index).find("label").text(text);
+        
+        /*
+        var show = $(".selectedShow").length - $(".selectedShow:hidden").length;
+        if (show > 1) {
+            $(".eliminateCriteria").show();
+        }
+        */
+       
+    });
+    //$(".selectedShow em").live("click",function(){
+    $(document).on("click", ".selectedShow em", function(event){
+        $(this).parents(".selectedShow").hide();
+        var textTypeIndex =$(this).parents(".selectedShow").index();
+        index = textTypeIndex;
+        //$(".listIndex").eq(index).find("a").removeClass("selected");
+        var hlbContainer = $("div[hlblocksContainer='true']").eq(index);
+        var hlblockList = hlbContainer.find("dl[hlblockid]");
+        var hlblock;
+        if(hlblockList.length>1){
+        	hlblock = hlblockList.parent("div.active").children("dl");
+        }else{
+        	hlblock = hlblockList;
+        }
+        //alert('hlblocks len='+hlblockList.length+", hlbContainer="+hlbContainer+", hlblock after filtered:"+hlblock.length);
+		hlblock.find("a[class='selected']").removeClass("selected");
+        
+        if($(".listIndex .selected").length < 2){
+            $(".eliminateCriteria").hide();
+        }
+    });
+    
+    //$(".eliminateCriteria").live("click",function(){
+    $(document).on("click", ".eliminateCriteria", function(event){
+        $(".selectedShow").hide();
+        $(this).hide();
+        $(".listIndex a ").removeClass("selected");
+    });
+
+    
+    
+		var typeids = ${page.urlGetParamValue("typeids")};
+		
+		
+		$.hdca = new Object();
+		$.hdca.query = new Object();
+		$.hdca.query['typeids'] = ${page.urlGetParamValue("typeids")};
+		$.hdca.query['cityareaid'] = ${page.urlGetParamValue("cityareaid")};
+		$.hdca.query['districtareaids'] = ${page.urlGetParamValue("districtareaids")};
+		$.hdca.query['namelike'] = ${page.urlGetParamValue("namelike")};
+		
+		$.hdca.getQueryString=function(){
+			var s = '/hdca/public/team/list?';
+			s += 'page=1';
+			s += '&start=0';
+			s += '&limit=10';
+			if($.hdca.query['typeids']!=null){
+				s += '&typeids='+$.hdca.query['typeids'];
+			}
+			//alert("districtareaids="+$.hdca.query['districtareaids']);
+			if($.hdca.query['cityareaid']!=null){
+				s += '&cityareaid='+$.hdca.query['cityareaid'];
+			}
+			if($.hdca.query['districtareaids']!=null){
+				s += '&districtareaids='+$.hdca.query['districtareaids'];
+			}
+			if($.hdca.query['namelike']!=null){
+				s += '&namelike='+$.hdca.query['namelike'];
+			}
+			//alert("qs="+s);
+			return s;
+		}
+		
+		//perform highlighting
+		var hrefDistrict;
+		if($.hdca.query['cityareaid']==null){
+			hrefDistrict = null;
+		}else{
+			hrefDistrict ='#district'+$.hdca.query['cityareaid'];
+			var div = $('#hasbeenclick div[id="'+hrefDistrict+'"]');
+			div.addClass("active");
+			var aCity = $("a[class='citytab_li'][href='"+"#district"+$.hdca.query['cityareaid']+"']");
+			aCity.addClass("selected");
+		}
+		
+		var a;
+		a = $("dl[class='listIndex'][attr='服务区域']").find("a[queryvalue='"+$.hdca.query['districtareaids']+"']'");
+		a.addClass("selected");
+		a = $("dl[class='listIndex'][attr='擅长方向']").find("a[queryvalue='"+$.hdca.query['typeids']+"']'");
+		a.addClass("selected");
+		
+		var hlbContainerList=$("div[hlblocksContainer]");
+		var i;
+		for(i=0;i<hlbContainerList.length;i++){
+			var hlbList = $(hlbContainerList[i]).find("dl[hlblockid]");
+			//alert("hlblocklist len="+hlblockList.length);
+			var hlbid = hlbList.attr("hlblockid");
+			var aHlb=hlbList.find("a");
+			var aHlbSelected=hlbList.find("a[class='selected']");
+			var querykey = aHlb.attr("querykey");
+			//alert($.hdca.query['www']==null);
+			
+			$(".clearDd").show();
+			
+			if($.hdca.query[querykey]!=null){
+				var textType = hlbList.attr('attr')+": ";
+				var text=aHlbSelected.text();
+				var ss = $(".selectedShow").eq(hlbid-1);
+				//alert("ss="+ss+",not null, tt="+textType+",t="+text);
+				ss.show();
+		        ss.find("span").text(textType);
+		        ss.find("label").text(text);
+			}
+		}
+		
+		var show = $(".selectedShow").length - $(".selectedShow:hidden").length;
+		//alert('show='+show);
+		//if (show > 1) {
+		//    $(".eliminateCriteria").show();
+		//}
+    
+    
+	});    
+});
+</script>
+	<!--end Screening of navigation-->
+
+	<script>
+    $(function(){
+            var element = $('#pagement');
+            
+            /* rev1220 start */
+            var countTeams = ${total};
+            var teamsPerPage = 5;
+            var totalPages = Math.ceil(countTeams/teamsPerPage);
+            /* rev1220 end */
+            
+	    
+	    
+            var options = {
+                bootstrapMajorVersion:3,
+                currentPage: ${page.getPage()},
+                numberOfPages: 5,
+                totalPages:totalPages,
+                pageUrl: function(type, page, current){
+                /* rev1220 start */
+                var paramStart = (page-1)*teamsPerPage;
+                var paramLimit = teamsPerPage;
+                /* rev1220 end */
+//                var typeids = $.hdca.query['typeids'];
+//		var cityareaid = $.hdca.query['cityareaid'];
+//		var districtareaids = $.hdca.query['districtareaids'];
+//		var namelike = $.hdca.query['namelike'];
+//		
+                return '/hdca/public/team/list?kkk=vvv&'+'${page.urlGetParamString()}'+'&page='+page+'&start='+paramStart+'&limit='+paramLimit/*+namelike+districtareaids+cityareaid+typeids*/;
+                }
+            }
+            element.bootstrapPaginator(options);
+    });
+</script>
+	<!--end pagement-->
+
+	<script>
+	$("#citytab .citytab_li").click(function(){
+		
+		$("#hasbeenclick div").removeClass("active");   
+		var hrefDistrict=$(this).attr('href');
+		$.hdca.query['cityareaid']=hrefDistrict.substring(9);
+		var div = $('#hasbeenclick div[id="'+hrefDistrict+'"]');
+		div.addClass("active");
+	});
+	
+	
+	
+	
+	
+</script>
+	<!--end tab of navigation-->
+
+	<script>
+    $("#hasBeenSelected div:contains('服务区域') em").click(function(){
+	$("#hasbeenclick div:contains('服务区域') a").removeClass("selected");   
+    });
+    
+    $("#hasBeenSelected div:contains('擅长方向') em").click(function(){
+	$("#hasbeenclick div:contains('擅长方向') a").removeClass("selected");   
+    });
+    
+    //var tlsize=${teamList.size()};
+</script>
+
+	<script>
+	$.sr_teamselected = new Object();
+	
+    $(function(){
+        var text = $("#searchtext");
+        var search = $("#search");
+        search.click(function(){
+            //window.location.replace('http://www.company.com/someapp?query='+text.val()+'');
+            $.hdca.query['namelike'] = text.val();
+            var url = $.hdca.getQueryString();
+            window.location.replace(url);
+        });
+          
+    }); 
+	
+    $("#message").click(function(){
+    	var mf = $("#messageform");
+    	//alert("mf.cn="+mf.find("[name='mf.contactname']").val());
+    	//return;
+    	$.ajax({
+    		url: '/hdca/public/servicerequest/createApplicationRequest',
+    	    data: {
+    	    	customername:mf.find("[name='mf.customername']").val(),
+    	    	contactname:mf.find("[name='mf.contactname']").val(),
+    	    	contactnumber:mf.find("[name='mf.contactnumber']").val(),
+    	    	comment:mf.find("[name='mf.comment']").val(),
+    	    	teamname: $.sr_teamselected['name']
+    	    },
+    	    type: 'POST',
+            success: function(msg) {
+               	alert(msg.msg);
+            }
+    	});
+    }); 
+    
+    $("#free").click(function(){
+    	var mf = $("#pricingform");
+    	//alert("mf.cn="+mf.find("[name='mf.contactname']").val());
+    	//return;
+    	$.ajax({
+    		url: '/hdca/public/servicerequest/createPricingRequest',
+    	    data: {
+    	    	customername:mf.find("[name='pf.customername']").val(),
+    	    	contactname:mf.find("[name='pf.contactname']").val(),
+    	    	contactnumber:mf.find("[name='pf.contactnumber']").val(),
+    	    	teamname: $.sr_teamselected['name']
+    	    },
+    	    type: 'POST',
+            success: function(msg) {
+               	alert(msg.msg);
+            }
+    	});
+    });
+    
+    var aaa = 0;
+    aaa +=1;
+    //alert($("p[typeid]").length);
+    $( "p[typeid]" ).each(function( index ) {
+    	var typeid = $(this).attr('typeid');
+  	$( this ).text(teamattrmaps.typemap[typeid]);
+  	
+  	
+  	
+  	 $("a[sraction='pricing']").click(function(){
+  	 	$('#offer').modal('show');
+  	 	$.sr_teamselected['name']=$(this).attr('teamname');
+     });
+  	 
+  	$("a[sraction='appointment']").click(function(){
+  	 	$('#appointment').modal('show');
+  	 	$.sr_teamselected['name']=$(this).attr('teamname');
+     });
+  	 //sraction="pricing"
+});
+    
+    
+</script>
+	<!--end tab of search-->
+
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hdca.PswRestTokenMapper">
+	<!-- ============ create ==================================== -->
+	<insert id="addPswRestToken" parameterType="com.hdca.domain.PswResetToken"
+		useGeneratedKeys="true" keyProperty="id">
+	INSERT INTO PSWRESETTOKEN
+	(NAME,TOKEN,CREATETIME)
+	VALUES
+	(#{name},#{token},#{createtime})
+	</insert>
+
+	<!-- ============ read data ==================================== -->
+	<select id="getPswRestToken" resultType="com.hdca.domain.PswResetToken">
+		SELECT * FROM
+		PSWRESETTOKEN
+		WHERE
+		TOKEN=#{token}
+	</select>
+	
+	
+	<!-- ============ read count ==================================== -->
+	
+	<!-- ============ update ==================================== -->
+	
+</mapper>

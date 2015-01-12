@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hdca.CustomerMapper">
+	<!-- ============ create ==================================== -->
+	<insert id="addCustomer" parameterType="com.hdca.domain.Customer"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO CUSTOMER
+		(NICKNAME,PSWHASH,MOBILE,EMAIL,DISTRICTAREAID)
+		VALUES
+		(#{nickname},#{pswhash},#{mobile},#{email},#{districtareaid})
+	</insert>
+
+	<!-- ============ read data ==================================== -->
+	<select id="getCustomerByEmail" resultType="com.hdca.domain.Customer">
+		SELECT * FROM
+		CUSTOMER
+		WHERE
+		EMAIL=#{email}
+	</select>
+	<select id="getCustomerByPage" resultType="com.hdca.domain.Customer">
+		SELECT *
+		FROM
+		`CUSTOMER`
+		ORDER
+		BY
+		id LIMIT
+		#{start},#{limit}
+	</select>
+	<!-- ============ read count ==================================== -->
+	<select id="getCustomerCount" resultType="int">
+		SELECT COUNT(*)
+		FROM
+		`CUSTOMER`
+	</select>
+	<!-- ============ update ==================================== -->
+	<update id="updateCustomer">
+		UPDATE CUSTOMER
+		<set>
+			NICKNAME=#{nickname},
+			MOBILE=#{mobile},
+			EMAIL=#{email}
+		</set>
+		<where>
+			ID =
+			#{id}
+		</where>
+	</update>
+	<update id="updateCustomerPswhash">
+		UPDATE CUSTOMER
+		<set>
+			PSWHASH=#{pswhash}
+		</set>
+		<where>
+			EMAIL =
+			#{email}
+		</where>
+	</update>
+	
+	<delete id="deleteCustomer">
+		DELETE FROM CUSTOMER
+		WHERE ID = #{id}
+	</delete>
+</mapper>

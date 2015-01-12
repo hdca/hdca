@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="${webroot}/css/base.min.css" rel="stylesheet" type="text/css">
+    <link href="${webroot}/css/bases.css" rel="stylesheet" type="text/css">
+    <link href="${webroot}/css/list.css" rel="stylesheet" type="text/css">
+    <link href="${webroot}/css/responsive.css" rel="stylesheet" type="text/css">
+    <script src="${webroot}/js/jquery-1.7.2.min.js"></script> 
+    <title>发布需求</title>
+    <!--[if lte IE 6]>
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/ie6.min.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/ie.css">
+    <![endif]-->
+</head>
+<body>
+    
+    <#include "/common/navbar.html" parse=true encoding="UTF-8"><!--end nav-->
+    
+    
+    <div class="loginbackbox">
+        <img src="/hdca/img/requirementbg.jpg" class="loginback">
+    </div>
+    
+    <div class="loginbox">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-5 col-md-offset-7">
+                    <div class="release login">
+                        <form role="form"  name=creator action="/hdca/public/servicerequest/createTeamWantedRequest">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">发布需求</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="exampleInputEmail1" name="contactname" placeholder="姓名">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="exampleInputEmail1" name="contactnumber" placeholder="电话">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="exampleInputEmail1" name="housetype" placeholder="户型">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="exampleInputEmail1" name="housesize" placeholder="面积（平方米）">
+                            </div>
+                            <input type="hidden" name="customername" value="${customer.getEmail()!"Anonymous"}">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">提交需求</button>
+                        </form><!--end form!-->
+                    </div><!--end release!-->
+                </div><!--end  small responsive div!-->
+            </div><!--end  big responsive div!-->
+        </div><!--end container!-->
+    </div><!--end requirement!-->
+    
+
+    
+    
+<script type="text/javascript" src="/hdca/js/base.min.js"></script>
+<!--[if lte IE 6]>
+  <script type="text/javascript" src="js/ie.js"></script>
+  <![endif]-->
+</body>
+</html>

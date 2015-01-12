@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hdca.TeamMapper">
+
+	<!-- ============ create ==================================== -->
+	<insert id="addTeam" parameterType="com.hdca.domain.Team"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO TEAM
+		(NAME,MOBILE,ADDRESS,CONTACTNAME,EMAIL,CITYAREAID,OFFERTYPE,EXTRAPACKAGE,CONTRACTDESC,COMMENT)
+		VALUES
+		(#{name},#{mobile},#{address},#{contactname},#{email},#{cityareaid},#{offertype},#{extrapackage},#{contractdesc},#{comment})
+		<!-- #{style,typeHandler=com.hdca.service.mybatis.typehandler.ArrayTypeHandler} -->
+	</insert>
+	<insert id="addTeamDistrict">
+		INSERT INTO TEAMDISTRICT
+		(TEAMID,DISTRICTAREAID)
+		VALUES
+		(#{teamid},#{districtareaid})
+		<!-- #{style,typeHandler=com.hdca.service.mybatis.typehandler.ArrayTypeHandler} -->
+	</insert>
+	<insert id="addTeamBasePackage">
+		INSERT INTO TEAMBASEPACKAGE
+		(TEAMID,BASEPACKAGEID)
+		VALUES
+		(#{teamid},#{basepackageid})
+		<!-- #{style,typeHandler=com.hdca.service.mybatis.typehandler.ArrayTypeHandler} -->
+	</insert>
+	<insert id="addTeamType">
+		INSERT INTO TEAMTYPE
+		(TEAMID,TYPEID)
+		VALUES
+		(#{teamid},#{typeid})
+		<!-- #{style,typeHandler=com.hdca.service.mybatis.typehandler.ArrayTypeHandler} -->
+	</insert>
+	<insert id="addTeamPriceRange">
+		INSERT INTO TEAMPRICERANGE
+		(TEAMID,PRICERANGEID)
+		VALUES
+		(#{teamid},#{pricerangeid})
+		<!-- #{style,typeHandler=com.hdca.service.mybatis.typehandler.ArrayTypeHandler} -->
+	</insert>
+	<!-- ============ get team properties ==================================== -->
+	<select id="getTeamDetailByTeamId" resultType="com.hdca.domain.Team">
+		SELECT
+		T.ID,T.NAME,T.MOBILE,T.ADDRESS,T.CONTACTNAME,T.EMAIL,T.CITYAREAID,T.OFFERTYPE,T.EXTRAPACKAGE,T.CONTRACTDESC,T.COMMENT,
+		C_DISTRICTAREAIDS,C_DISTRICTNAMES,C_TYPEIDS,C_BASEPACKAGEIDS,C_PRICERANGEIDS
+		FROM TEAM T
+		LEFT OUTER JOIN
+
+		(SELECT TEAMID,districtareaid,GROUP_CONCAT(CAST(districtareaid AS CHAR)) AS
+		C_DISTRICTAREAIDS,GROUP_CONCAT(CAST(GA.NAME AS CHAR)) AS
+		C_DISTRICTNAMES FROM TEAMDISTRICT TDINNER LEFT JOIN GEOAREA GA
+		ON(TDINNER.districtareaid=GA.areaid) GROUP BY TEAMID ) TD
+		ON(T.id=TD.teamid)
+
+		LEFT JOIN (SELECT TEAMID,GROUP_CONCAT(CAST(typeid AS CHAR)) AS C_TYPEIDS
+		FROM TEAMTYPE GROUP BY TEAMID ) TT ON(T.id=TT.teamid)
+		LEFT JOIN (SELECT TEAMID,GROUP_CONCAT(CAST(basepackageid AS CHAR)) AS
+		C_basepackageIDS FROM TEAMBASEPACKAGE GROUP BY TEAMID) TBP
+		ON(T.id=TBP.teamid)
+		LEFT JOIN (SELECT TEAMID,GROUP_CONCAT(CAST(pricerangeid AS CHAR)) AS
+		C_pricerangeIDS FROM TEAMPRICERANGE GROUP BY TEAMID) TPR
+		ON(T.id=TPR.teamid)
+		WHERE T.ID=#{teamid}
+	</select>
+	<select id="getTeamByPage" resultType="com.hdca.domain.Team">
+		SELECT
+		T.ID,T.NAME,T.MOBILE,T.ADDRESS,T.CONTACTNAME,T.EMAIL,T.CITYAREAID,T.OFFERTYPE,T.EXTRAPACKAGE,T.CONTRACTDESC,T.ADID,T.COMMENT,
+		C_DISTRICTAREAIDS,C_DISTRICTNAMES,C_TYPEIDS,C_BASEPACKAGEIDS,C_PRICERANGEIDS
+		FROM TEAM T
+		LEFT OUTER JOIN
+
+		(SELECT TEAMID,districtareaid,GROUP_CONCAT(CAST(districtareaid AS CHAR)) AS
+		C_DISTRICTAREAIDS,GROUP_CONCAT(CAST(GA.NAME AS CHAR)) AS
+		C_DISTRICTNAMES FROM TEAMDISTRICT TDINNER LEFT JOIN GEOAREA GA
+		ON(TDINNER.districtareaid=GA.areaid) GROUP BY TEAMID ) TD
+		ON(T.id=TD.teamid)
+
+		LEFT JOIN (SELECT TEAMID,GROUP_CONCAT(CAST(typeid AS CHAR)) AS C_TYPEIDS
+		FROM TEAMTYPE GROUP BY TEAMID ) TT ON(T.id=TT.teamid)
+		LEFT JOIN (SELECT TEAMID,GROUP_CONCAT(CAST(basepackageid AS CHAR)) AS
+		C_basepackageIDS FROM TEAMBASEPACKAGE GROUP BY TEAMID) TBP
+		ON(T.id=TBP.teamid)
+		LEFT JOIN (SELECT TEAMID,GROUP_CONCAT(CAST(pricerangeid AS CHAR)) AS
+		C_pricerangeIDS FROM TEAMPRICERANGE GROUP BY TEAMID) TPR
+		ON(T.id=TPR.teamid)
+		LIMIT #{start},#{limit}
+	</select>
+
+	<select id="searchTeam" resultType="com.hdca.domain.Team">
+		${datasql}
+	</select>
+	<select id="getTeamSearchCount" resultType="int">
+		${countsql}
+	</select>
+
+	<select id="getTeamAd" resultType="com.hdca.domain.Team">
+		SELECT
+		T.ID,T.NAME,T.ADID,T.ADDRESS FROM TEAM T
+		WHERE ADID BETWEEN 1 AND 8
+		ORDER BY ADID
+	</select>
+
+	<!-- ============ read count ==================================== -->
+	<select id="getTeamCount" resultType="int">
+		SELECT COUNT(*)
+		FROM
+		`TEAM`
+	</select>
+
+	<!-- ============ update ==================================== -->
+	<update id="updateTeam">
+		UPDATE TEAM
+		<set>
+			<if test="contactname != null">
+				contactname=#{contactname},
+			</if>
+			<if test="mobile != null">
+				mobile=#{mobile},
+			</if>
+			<if test="email != null">
+				email=#{email},
+			</if>
+			<if test="cityareaid != null">
+				cityareaid=#{cityareaid},
+			</if>
+			<if test="adid != null">
+				adid=#{adid},
+			</if>
+			<if test="offertype != null">
+				offertype=#{offertype},
+			</if>
+			<if test="contractdesc != null">
+				contractdesc=#{contractdesc},
+			</if>
+			<if test="address != null">
+				address=#{address},
+			</if>
+			<if test="extrapackage != null">
+				extrapackage=#{extrapackage},
+			</if>
+			<if test="contractdesc != null">
+				contractdesc=#{contractdesc},
+			</if>
+			<if test="comment != null">
+				comment=#{comment},
+			</if>
+			name=#{name}
+		</set>
+		<where>
+			id =
+			#{id}
+		</where>
+	</update>
+	<update id="updateTeamAdid">
+		UPDATE TEAM
+		<set>
+			ADID=#{adid}
+		</set>
+		<where>
+			ID =
+			#{id}
+		</where>
+	</update>
+
+	<!-- ============ delete ==================================== -->
+	<delete id="deleteTeam">
+		DELETE FROM TEAM
+		WHERE ID = #{id}
+	</delete>
+	<delete id="clearTeamBasePackages">
+		DELETE FROM TEAMBASEPACKAGE
+		WHERE TEAMID = #{teamid}
+		<!-- #{style,typeHandler=com.hdca.service.mybatis.typehandler.ArrayTypeHandler} -->
+	</delete>
+	<delete id="clearTeamTypes">
+		DELETE FROM TEAMTYPE
+		WHERE TEAMID = #{teamid}
+		<!-- #{style,typeHandler=com.hdca.service.mybatis.typehandler.ArrayTypeHandler} -->
+	</delete>
+	<delete id="clearTeamPriceRanges">
+		DELETE FROM TEAMPRICERANGE
+		WHERE TEAMID = #{teamid}
+		<!-- #{style,typeHandler=com.hdca.service.mybatis.typehandler.ArrayTypeHandler} -->
+	</delete>
+</mapper>

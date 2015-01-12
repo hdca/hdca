@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+	  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!-- 
+	<typeHandlers>
+		<typeHandler handler="com.hdca.service.mybatis.typehandler.ArrayTypeHandler" javaType="java.util.List" jdbcType="OTHER" />
+	</typeHandlers>
+	 -->
+	<mappers>
+		<mapper resource="com/hdca/persist/team-mybatis.xml" />
+		<mapper resource="com/hdca/persist/geoarea-mybatis.xml" />
+		<mapper resource="com/hdca/persist/customer-mybatis.xml" />
+		<mapper resource="com/hdca/persist/teamwanted-mybatis.xml" />
+		<mapper resource="com/hdca/persist/servicerequest-mybatis.xml" />
+		<mapper resource="com/hdca/persist/user-mybatis.xml" />
+		<mapper resource="com/hdca/persist/pswresettoken-mybatis.xml" />
+	</mappers>
+</configuration>

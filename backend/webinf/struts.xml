@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.enable.SlashesInActionNames" value="true" />
+	<constant name="struts.multipart.saveDir" value="/tmp" />
+	<!-- <constant name="struts.action.extension" value="jpg," /> -->
+
+	<package name="root" namespace="/" extends="struts-default">
+		<action name="welcome" class="homeAction" method="execute">
+			<result type="freemarker" name="success">/index.html</result>
+			<interceptor-ref name="params" />
+		</action>
+	</package>
+
+
+	<package name="public" namespace="/public" extends="struts-default">
+		<interceptors>
+			<interceptor name="authentication"
+				class="com.hdca.logic.interceptor.AuthenticationInterceptor"></interceptor>
+			<interceptor-stack name="authStack">
+				<interceptor-ref name="authentication"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="defaultStack"></default-interceptor-ref>
+
+
+		<action name="mainScript" class="mainScriptAction" method="execute">
+			<result type="freemarker" name="success">/registered.html</result>
+			<interceptor-ref name="params" />
+		</action>
+		<action name="team/register_step1" class="teamRegisterStep1Action"
+			method="execute">
+			<result type="freemarker" name="success">/registered.html</result>
+			<interceptor-ref name="params" />
+		</action>
+		<action name="team/register_step2" class="teamRegisterStep2Action"
+			method="execute">
+			<result type="freemarker" name="success">/reg-team.html</result>
+			<interceptor-ref name="params" />
+		</action>
+		<action name="team/list" class="teamListAction" method="execute">
+			<result type="freemarker" name="success">/team.html</result>
+			<interceptor-ref name="params" />
+		</action>
+		<action name="team/detail" class="teamDetailAction" method="execute">
+			<result type="freemarker" name="success">/detail.html</result>
+			<interceptor-ref name="params" />
+		</action>
+		<action name="team/create" class="teamCreateAction" method="execute">
+			<result type="freemarker" name="success">/submit.html</result>
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">image/jpeg, /gif,image/png</param>
+				<param name="maximumSize">6000000</param>
+			</interceptor-ref>
+			<interceptor-ref name="params" />
+		</action>
+		<action name="team/logo/*" class="teamLogoAction" method="execute">
+			<result type="freemarker" name="success">/xxx.html</result>
+			<interceptor-ref name="params" />
+		</action>
+		<action name="servicerequest/*" class="serviceRequestAction"
+			method="{1}">
+			<!-- <param name="method">{1}</param> -->
+			<interceptor-ref name="params" />
+			<result type="freemarker" name="success">/submit.html</result>
+		</action>
+		<action name="teamwanted/tocreate" class="teamWantedToCreateAction"
+			method="execute">
+			<result type="freemarker" name="success">/requirement.html</result>
+			<interceptor-ref name="params" />
+		</action>
+		<action name="teamwanted/create" class="teamWantedCreateAction"
+			method="execute">
+			<result type="freemarker" name="success">/requirement.html</result>
+			<interceptor-ref name="params" />
+		</action>
+		<action name="customer/create" class="customerCreateAction"
+			method="execute">
+			<result type="freemarker" name="success">/submit.html</result>
+			<interceptor-ref name="params" />
+		</action>
+		<action name="customer/listdata" class="customerListDataAction"
+			method="execute">
+			<result type="freemarker" name="success">/test1127/index.html</result>
+		</action>
+		<action name="customer/register" class="customerRegisterAction"
+			method="execute">
+			<result type="freemarker" name="success">/submit.html</result>
+		</action>
+		<action name="customer/tologin" class="customerToLoginAction"
+			method="execute">
+			<result type="freemarker" name="success">/login.html</result>
+			<interceptor-ref name="params" />
+		</action>
+		<action name="customer/login" class="customerLoginAction"
+			method="execute">
+			<result type="freemarker" name="success">/submit.html</result>
+			<result type="freemarker" name="failure">/login.html</result>
+			<interceptor-ref name="params" />
+		</action>
+		<action name="customer/torequestpasswordreset" class="baseAction"
+			method="execute">
+			<result type="freemarker" name="success">/getpassword.html</result>
+			<interceptor-ref name="params" />
+		</action>
+		<action name="customer/requestpasswordreset" class="customerRequestPasswordResetAction"
+			method="execute">
+			<result type="freemarker" name="success">/submit.html</result>
+			<interceptor-ref name="params" />
+		</action>
+		<action name="customer/resetpsw" class="customerPswResetAction"
+			method="execute">
+			<result type="redirect" name="success">
+				<param name="location">/public/customer/tosetpsw.action?email=${email}</param>
+			</result>
+			<result type="freemarker" name="failure">/submit.html</result>
+			<interceptor-ref name="params" />
+		</action>
+		<action name="customer/tosetpsw" class="customerToUpdatePasswordAction"
+			method="execute">
+			<result type="freemarker" name="success">/setpassword.html</result>
+			<interceptor-ref name="params" />
+		</action>
+		<action name="customer/setpsw" class="customerUpdatePasswordAction"
+			method="execute">
+			<result type="freemarker" name="success">/submit.html</result>
+			<result type="freemarker" name="failure">/submit.html</result>
+			<interceptor-ref name="params" />
+		</action>
+
+
+
+	</package>
+
+	<package name="admin" namespace="/admin" extends="struts-default">
+		<interceptors>
+			<interceptor name="authentication"
+				class="com.hdca.logic.interceptor.AdminViewAuthenticationInterceptor"></interceptor>
+			<interceptor-stack name="authStack">
+				<interceptor-ref name="authentication"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="authStack"></default-interceptor-ref>
+
+		<global-results>
+			<result name="login" type="redirect">/adminviewlogin.jsp</result>
+		</global-results>
+
+		<!-- 
+		<action name="home" class="baseAction" method="execute">
+			<result name="success">/admin/index.jsp
+			</result>
+			<interceptor-ref name="authentication" />
+		</action>
+		 -->
+
+		<action name="login" class="com.hdca.logic.admin.action.LoginAction"
+			method="execute">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success">/admin/index.jsp</result>
+		</action>
+
+
+
+
+
+		<action name="customer/*" class="admin.customerAction" method="{1}">
+			<!-- <param name="method">{1}</param> -->
+			<interceptor-ref name="params" />
+			<result type="freemarker" name="success">/submit.html</result>
+		</action>
+		<action name="team/*" class="admin.teamAction" method="{1}">
+			<!-- <param name="method">{1}</param> -->
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">image/jpeg, /gif,image/png</param>
+				<param name="maximumSize">6000000</param>
+			</interceptor-ref>
+			<interceptor-ref name="params" />
+			<result type="freemarker" name="success">/submit.html</result>
+		</action>
+		<action name="team/listdata" class="admin.teamListDataAction"
+			method="execute">
+			<result type="freemarker" name="success">/registered.html</result>
+			<interceptor-ref name="params" />
+		</action>
+		<action name="team/attribute/*" class="admin.TeamAttributeAction"
+			method="{1}">
+			<result type="freemarker" name="success">/registered.html</result>
+			<interceptor-ref name="params" />
+		</action>
+
+
+		<action name="servicerequest/*" class="admin.serviceRequestAction"
+			method="{1}">
+			<result type="freemarker" name="success">/registered.html</result>
+			<interceptor-ref name="params" />
+		</action>
+
+	</package>
+
+
+
+	<!-- <package name="service" namespace="/service/team" extends="struts-default"> 
+		</package> -->
+
+	<package name="test" namespace="/test" extends="struts-default">
+		<!-- <action name="/team/*" class="teamAction" method="{1}"> -->
+		<action name="freemarkerprops" class="fmPropsExampleAction"
+			method="execute">
+			<result type="freemarker" name="success">/test1127/fmpropsexample.html
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		<action name="freemarkerteams" class="fmPropsExampleAction"
+			method="execute">
+			<result type="freemarker" name="success">/test1127/fmteamsexample.html
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		<action name="jqgrid" class="com.hdca.util.test.jqgrid.JqGridAction"
+			method="execute">
+			<result name="success">/test1127/fmteamsexample.html
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		<action name="jqgriddata" class="com.hdca.util.test.jqgrid.JqDataAction"
+			method="execute">
+			<result name="success">/test1127/fmteamsexample.html
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+
+		<action name="sourceviewer"
+			class="com.hdca.util.test.sourceviewer.SourceViewerAction" method="execute">
+			<result type="freemarker" name="success">/test1127/fmteamsexample.html
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+	</package>
+
+	<package name="default" namespace="/" extends="struts-default">
+		<action name="notes" class="com.hdca.util.test.notes.NotesAction"
+			method="execute">
+			<result type="freemarker" name="success">/test1127/fmteamsexample.html
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+
+		<action name="notes" class="com.hdca.util.test.notes.NotesAction"
+			method="execute">
+			<result type="freemarker" name="success">/test1127/fmteamsexample.html
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+	</package>
+
+</struts>

@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="cn">
+<head>
+    <meta http-equiv="Content-Type" content="textml; charset=UTF-8">
+		
+    <link rel="stylesheet" type="text/css" href="css/ui.grid.css"/>
+    <style type="text/css">
+        html, body { font-size: 75%; }
+        .ui-jqgrid-hdiv { overflow-y: hidden; }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/grid.locale-en.js"></script>
+    <script type="text/javascript">
+        $.jgrid.no_legacy_api = true;
+        $.jgrid.useJSON = true;
+    </script>
+    <script type="text/javascript" src="js/jquery.jqGrid.min.js"></script>
+    <script type="text/javascript" src="js/jquery.multiselect.js"></script>
+
+<script>
+
+ $(function() {
+$('#list').jqGrid({
+   jsonReader : {
+    repeatitems: false,
+    cell:"",
+    id:"0"
+   },   
+    height:'auto',
+    url:'/hdca/admin/team/listdata',
+    postData:{test:'value'},
+    datatype: 'json',
+    mtype: 'POST',
+    rownumbers:true,
+    rownumWidth:35,
+    colNames:['id','name'],
+    colModel :[ 
+      {name:'id', index:'id',search:false,sorttype:'integer'}, 
+      {name:'name', index:'name',editable:true,sorttype:'string'}
+    ],
+    sortname: 'id ',
+    rowNum:5,
+    sortorder: 'asc',
+    width:'100%',
+    height:'200',
+    viewrecords: true,
+    gridview: true,
+    caption: 'NorthWind Orders',
+    scrollOffset:18,
+    multiselect:true,
+    pager:'pager'
+    ,cellEdit:true,
+    cellsubmit:'clientArray'            
+    });
+ });
+
+</script>
+
+    <title>后台管理</title>
+</head>
+<body>
+        
+        <table id="list"><tr><td></td></tr></table>
+	<div id="pager"></div>
+
+	
+	
+<<<<<<< .mine
+<script type="text/javascript">
+$(function () {
+    $grid = $("#list"),
+    $grid.jqGrid({
+        url: "http://182.92.173.63:8080/hdca/admin/team/listdata?rows=5&page=1",
+        datatype: "json",
+        mtype: "GET",
+        colNames: ["id", "name", "cityareaid", "Tax", "Total", "Notes"],
+        colModel: [
+            { name: "id", width: 55 },
+            { name: "name", width: 90 },
+            { name: "cityareaid", width: 80, align: "right" },
+            { name: "tax", width: 80, align: "right" },
+            { name: "total", width: 80, align: "right" },
+            { name: "note", width: 150, sortable: false }
+        ],
+	cmTemplate: { editable: true },
+        pager: "#pager",
+        rowNum: 10,
+        rowList: [5, 10, 20, 50],
+        sortname: "id",
+        sortorder: "asc",
+        viewrecords: true,
+        gridview: true,
+        height: "100%",
+        autoencode: true,
+        caption: "My first grid"
+    });
+    $.extend($.jgrid.view, { width: 450, recreateForm: true });
+    $.extend($.jgrid.edit, { width: 450, recreateForm: true });
+    $grid.jqGrid("navGrid", "#pager", {view: true});
+=======
+>>>>>>> .r46
+
+</body>
+    
+</html>

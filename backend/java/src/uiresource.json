@@ -1,0 +1,28 @@
+{
+	navmodules: [
+			{
+				id : 1,
+				name : 'home',
+				text : '首页',
+				href : '/hdca'
+			},
+			{
+				id : 2,
+				name : 'search',
+				text : '寻找施工队',
+				href: '/hdca/public/team/list?page=1&start=0&limit=10',
+				oldhref : '/hdca/public/team/list?page=1&start=0&limit=10&cityareaid=321&districtareaids=2705&typeids=1'
+			}, {
+				id : 3,
+				name : 'login',
+				text : '登录',
+				href : '/hdca/public/customer/tologin',
+				hidewhenlogin: true
+			}, {
+				id : 4,
+				name : 'register',
+				text : '注册',
+				href : '/hdca/public/team/register_step1',
+				hidewhenlogin: true
+			} ]
+}

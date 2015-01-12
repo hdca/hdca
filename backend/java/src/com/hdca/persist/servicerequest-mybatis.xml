@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hdca.ServiceRequestMapper">
+
+	<!-- ============ create ==================================== -->
+	<insert id="addServiceRequest" parameterType="com.hdca.domain.ServiceRequest"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO SERVICEREQUEST
+		(CUSTOMERNAME,TEAMNAME,REQUEST,TYPE,CREATETIME)
+		VALUES
+		(#{customername},#{teamname},#{request},#{type},#{createtime})
+		<!-- #{style,typeHandler=com.hdca.service.mybatis.typehandler.ArrayTypeHandler} -->
+	</insert>
+
+	<!-- ============ read data ==================================== -->
+	<select id="getServiceRequestByPage" resultType="com.hdca.domain.ServiceRequest">
+		SELECT *
+		FROM
+		`SERVICEREQUEST`
+		ORDER
+		BY
+		id LIMIT
+		#{start},#{limit}
+	</select>
+	<select id="getServiceRequestForNews" resultType="com.hdca.domain.ServiceRequest">
+		SELECT * FROM
+		`SERVICEREQUEST`
+		WHERE TYPE IN (2,3)
+		ORDER BY ID DESC
+		LIMIT 0,2
+	</select>
+	<!-- ============ read count ==================================== -->
+	<select id="getServiceRequestCount" resultType="int">
+		SELECT COUNT(*)
+		FROM
+		`SERVICEREQUEST`
+	</select>
+
+</mapper>

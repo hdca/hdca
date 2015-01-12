@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="/hdca/css/base.min.css" rel="stylesheet" type="text/css">
+    <link href="/hdca/css/bases.css" rel="stylesheet" type="text/css">
+    <link href="/hdca/css/list.css" rel="stylesheet" type="text/css">
+    <link href="/hdca/css/responsive.css" rel="stylesheet" type="text/css">
+    <script src="/hdca/js/jquery-1.7.2.min.js"></script> 
+    <script type="text/javascript">
+    var provmap = ${gaservice.jsongetProvinceMap()};
+	var provcitymap = ${gaservice.jsongetProvinceCityMap()};
+    /*	
+    var provmap = {
+    		"2" : "北京",
+    		"3" : "安徽",
+    		"4" : "福建"
+    	};
+    	var provcitymap = {
+    		"2" : [ [ "52", "北京" ] ],
+    		"3" : [ [ "36", "安庆" ], [ "37", "蚌埠" ], [ "38", "巢湖" ] ],
+    		"4" : [ [ "53", "福州" ], [ "54", "龙岩" ], [ "55", "南平" ] ]
+    	};
+    	*/
+    </script>
+    <title>注册</title>
+    <!--[if lte IE 6]>
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/ie6.min.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/ie.css">
+    <![endif]-->
+   
+</head>
+<body>
+    
+    <#include "/common/navbar.html" parse=true encoding="UTF-8"><!--end nav-->
+    
+    <div class="loginbackbox">
+        <img src="/hdca/img/registeredbg.jpg" class="loginback">
+    </div>
+    
+    <div class="loginbox">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-4 col-md-offset-8">
+                    <div class="login">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#user" id="userb" role="tab" data-toggle="tab">个人用户</a></li>
+                            <li role="presentation"><a href="#team" id="teamb" role="tab" data-toggle="tab">施工队</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div role="tabpanel" class="user tab-pane active" id="user">
+                                <form role="form" style="margin-top: 25px;" action="/hdca/public/customer/create">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="exampleInputEmail1" name="customer.email" placeholder="邮箱地址">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="exampleInputEmail1" name="customer.nickname" placeholder="昵称">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="exampleInputPassword1" name="customer.password" placeholder="密码">
+                                    </div>
+                                    
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> 我已阅读并接受<a href="/hdca/thing.html" target="_blank">《施工队用户服务协议》</a>
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block">注册</button>
+                                </form>
+                            </div><!--end user tabs!-->
+                            <div role="tabpanel" class="team tab-pane" id="team">
+                                <form role="form" style="margin-top: 15px;"  name=creator  action="/hdca/public/team/register_step2">
+                                    <div class="form-group" style="height: 53px;">
+                                        <p class="point">
+                                            <span class="round r1 active">1</span>
+                                            <span class="round r2">2</span>
+                                            <span class="round r3">3</span>
+                                            <span class="line"></span>
+                                        </p>
+                                        <p class="word">
+                                            <span class="round r1 active">创建账号</span>
+                                            <span class="round r2">认证</span>
+                                            <span class="round r3">注册成功</span>
+                                            
+                                        </p>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="team.name" class="form-control" id="exampleInputEmail1" placeholder="施工队名称">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="team.contactname" class="form-control" id="exampleInputEmail1" placeholder="联系人">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="team.mobile" class="form-control" id="exampleInputEmail1" placeholder="手机号码">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <script type="text/javascript">   
+                                                function initcity(city) { 
+                                                
+                                            	var provinceid = document.creator["province"].value;
+                                            	var cityOptions = new Array("请选择地区", "-1");
+                                            	var citylist = provcitymap[provinceid];
+                                            	for ( var i=0;i<citylist.length;i++) {
+                                            		var city=citylist[i];
+                                            		cityOptions.push(city[1]);
+                                            		cityOptions.push(city[0]);
+                                            	}
+                                                
+                                                
+                                                document.creator["team.cityareaid"].options.length = 0; for(var i = 0; i < cityOptions.length/2; i++) { document.creator["team.cityareaid"].options[i]=new Option(cityOptions[i*2],cityOptions[i*2+1]); if (document.creator["team.cityareaid"].options[i].value==city){ document.creator["team.cityareaid"].selectedIndex = i; } } } 
+                                                
+                                                //function creatprovince(province){ var provinces = new Array( "北京", "上海", "重庆", "安徽", "福建", "甘肃", "广东", "广西", "贵州", "海南", "河北", "黑龙江", "河南", "香港", "湖北", "湖南", "江苏", "江西", "吉林", "辽宁", "澳门", "内蒙古", "宁夏", "青海", "山东", "山西", "陕西", "四川", "台湾", "天津", "新疆", "西藏", "云南", "浙江", "海外" ); document.creator["province"].options[0]=new Option("请选择省份",""); for(var i = 0; i < provinces.length; i++) { document.creator["province"].options[i+1]=new Option(provinces[i],provinces[i]); if (document.creator["province"].options[i+1].value==province){ document.creator["province"].selectedIndex = i+1; } } }
+                                                function creatprovince(province) {
+                                                document.creator["province"].options[0] = new Option("请选择省份", "");
+                                                var i=0;
+												for ( var provid in provmap) {
+													if (provmap.hasOwnProperty(provid)) {
+														
+														document.creator["province"].options[i + 1] = new Option(provmap[provid],
+																provid);
+														/*
+														if (document.creator["province"].options[i + 1].value == province) {
+															document.creator["province"].selectedIndex = i + 1;
+														}
+														*/
+														
+														i++;
+													}
+												}
+                                                }
+                                                
+                                                </script> 
+<!-- rev1204 start-->
+<!--
+                                            <form name=creator style="padding: 0px 15px;"> 
+-->
+<!-- rev1204 end-->
+                                                <div class="col-xs-6">
+                                                    <select  class="form-control" onchange="initcity();" name="province"  style="color:#444;"> 
+                                                        <SCRIPT>creatprovince();</SCRIPT> 
+                                                    </select>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <select name="team.cityareaid" style="color:#444;" class="form-control"> 
+                                                        <option value="">选择城市</option> 
+                                                    </select>
+                                                </div>
+<!-- rev1204 start-->
+<!--
+                                            </form> 
+-->
+<!-- rev1204 end-->
+                                        </div>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block">下一步</button>
+                                </form>
+                            </div><!--end team tabs!-->
+                        </div><!--end tabs!-->
+                    </div><!--end login!-->
+                </div><!--end  small responsive div!-->
+            </div><!--end  big responsive div!-->
+        </div><!--end container!-->
+    </div><!--end loginbox!-->
+      
+<script type="text/javascript" src="/hdca/js/base.min.js"></script>
+<!--[if lte IE 6]>
+  <script type="text/javascript" src="js/ie.js"></script>
+  <![endif]-->
+</body>
+</html>

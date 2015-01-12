@@ -1,0 +1,139 @@
+
+
+@media screen and (max-width: 2000px) {
+    /*team.html*/
+    .screen .col-md-1{padding-right: 0px !important;width: 12.3333% !important;}
+    .screen .col-md-11{padding-left: 0px !important;width: 87.6667% !important;}
+}
+
+
+
+
+@media screen and (max-width: 1024px) {
+    #news{margin-top: 550px; }
+    
+    /*team.html*/
+    .screen .col-md-1{padding-right: 0px !important;width: 12.3333% !important;}
+    .screen .col-md-11{padding-left: 0px !important;width: 87.6667% !important;}
+    
+    /*reg-team.html*/
+    .reg_teambackbox{width: 100%;height: 160%;}
+    .reg_teambackbox img{width: 320%;}
+}
+
+
+
+/***common for the above:3*/
+@media screen and (max-width: 800px) {
+    /*BANNER*/
+    .banner{height: 400px;}
+    .carousel-indicators {top: 300px;}
+    .carousel-control {height: 400px;}
+    .demand{top: 320px;}
+    .demand .col-md-6{width: 50%;float: left;}
+    .demand .btn-block{padding:1.5em}
+    .demand .left{height:80px;}
+    .demand .right{height:80px;}
+    #news{margin-top: 400px; }
+    
+    /*login.html*/
+    .loginback{width: 260%;}
+    .loginbox{padding-top: 80px !important;}
+    
+    /*reg-team.html*/
+    .reg_teambackbox{width: 100%;height: 160%;}
+    .reg_teambackbox img{width: 320%;}
+}
+
+
+
+/*for ipad2-3,mini*/
+@media screen and (max-width: 768px) {
+}
+
+
+
+/*small tablet*/
+@media screen and (max-width: 600px) {
+    /*NAV*/
+    .navbar-brand img{width: 170px;}
+        
+    /*BANNER*/
+    .banner{height: 360px;}
+    .carousel-indicators {top: 280px;}
+    .carousel-control {height: 360px;}
+    .demand{top: 300px;}
+    .demand .col-md-6{width: 50%;float: left;}
+    .demand .btn-block{padding:1em}
+    .demand .left{height:60px;}
+    .demand .right{height:60px;}
+    #news{margin-top: 360px; }
+    
+    /*team.html*/
+    .screen .col-md-1{padding-right: 15px !important;width: 100% !important;}
+    .screen .col-md-11{padding-left: 15px !important;width: 100% !important;}
+    
+    /*detail.html*/
+    .col-md-2.details a{float: left;margin: 0px;}
+    
+    /*reg-team.html*/
+    .reg_teambackbox{width: 100%;height: 170%;}
+    .reg_teambackbox img{width: 340%;}
+    
+    
+}
+
+
+/*iphone5*/
+@media screen and (max-width: 568px) {
+    /*BANNER*/
+    .banner{height: 300px;}
+    .carousel-indicators {top: 240px;}
+    .carousel-control {height: 300px;}
+    .demand{top: 260px;}
+    .demand .btn-block{padding:0.5em}
+    .demand .left{height:40px;}
+    .demand .right{height:40px;}
+    #news{margin-top: 300px; }
+    /*login.html*/
+    .loginback{width: 260%;}
+    .loginbackbox{height: 750px;}
+    .loginbox{padding-top: 80px !important;}
+    /*NAV*/
+    .nav > li > a {padding: 10px 15px;}
+    
+    /*reg-team.html*/
+    .reg_teambackbox{width: 100%;height: 400%;}
+    .reg_teambackbox img{width: 400%;}
+}
+
+
+
+/*case 1horizon and vertical for iphone4(320*480) and smaller phone, the layout is fluid*/
+@media screen and (max-width: 480px) {
+    /*NAV*/
+    .navbar-brand img{width: 160px;}
+}
+
+
+
+
+@media screen and (max-width:320px) {
+    /*BANNER*/
+    .banner{height: 180px;}
+    .carousel-indicators {top: 120px;}
+    .carousel-control {height: 180px;}
+    .demand{top: 140px;}
+    .demand .left{height:40px;}
+    .demand .right{height:40px;}
+    #news{margin-top: 180px; }
+    
+    /*login.html*/
+    .loginback{width: 360%;}
+    .loginbackbox{height: 700px;}
+    .loginbox{padding-top: 80px !important;}
+    
+    /*reg-team.html*/
+    .reg_teambackbox{width: 100%;height: 310%;}
+    .reg_teambackbox img{width: 820%;}
+}

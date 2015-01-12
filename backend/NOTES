@@ -1,0 +1,417 @@
+==aliyun==
+ip: 182.92.173.63
+psw: Sgd12345
+
+psw: Jin2014psw
+mysql psw: 151616921978427
+
+==sms==
+shigongdui123
+a666322
+
+==templates==
+comparision: http://www.javaworld.com/article/2449436/java-web-development/in-praise-of-java-template-engines.html
+
+==svn==
+--commands--
+http://wiki.greenstone.org/wiki/index.php/Useful_SVN_Commands
+add: http://stackoverflow.com/questions/1218237/subversion-add-all-unversioned-files-to-subversion-using-one-linux-command
+svn add vs. git add: http://stackoverflow.com/questions/12188512/subversion-equivalent-of-git-add
+
+--remove info--
+http://stackoverflow.com/questions/154853/how-do-you-remove-subversion-control-for-a-folder
+
+
+==tomcat==
+http://stackoverflow.com/questions/15632153/tomcat7-jdbc-datasource-this-is-very-likely-to-create-a-memory-leak
+http://tomcat.10.x6.nabble.com/tomcat-unexpected-shutdown-td5009379.html
+
+
+==java ee==
+--jsp--
+jsp in jar: http://stackoverflow.com/questions/5013917/can-i-serve-jsps-from-inside-a-jar-in-lib-or-is-there-a-workaround
+
+==java se==
+--email sending--
+http://www.tutorialspoint.com/servlets/servlets-sending-email.htm
+http://stackoverflow.com/questions/3757442/how-to-send-an-email-from-jsp-servlet
+http://zetcode.com/tutorials/jeetutorials/sendingemail/
+
+==mysql==
+--distinct--
+http://stackoverflow.com/questions/5967130/mysql-select-one-column-distinct-with-corresponding-other-columns
+
+SELECT * FROM TEAM WHERE ID IN
+(SELECT TEAMID FROM TEAMDISTRICT WHERE districtareaid IN (50,28) GROUP BY TEAMID)
+
+==freemarker==
+--tutorial--
+http://freemarker.org/docs/dgui_quickstart_template.html
+
+--control flow--
+condition: http://freemarker.org/docs/ref_directive_if.html
+loop: http://freemarker.org/docs/ref_directive_list.html
+
+--null value--
+http://stackoverflow.com/questions/13950289/handling-null-values-in-freemarker
+
+--struts2 integration--
+http://viralpatel.net/blogs/struts2-freemarker-tempalte-ftl-integration-example/
+
+--java object method--
+http://stackoverflow.com/questions/1362343/how-do-i-call-java-methods-on-an-object-from-a-freemarker-template
+
+--string split--
+http://stackoverflow.com/questions/18824652/freemarker-how-to-use-split-in-string-which-is-readed-with-include
+
+--include--
+http://freemarker.org/docs/ref_directive_include.html
+
+==jquery==
+http://stackoverflow.com/questions/9116694/jquery-find-input-type-but-also-for-select
+http://api.jquery.com/attribute-equals-selector/
+
+--ajax--
+http://stackoverflow.com/questions/5046930/jquery-send-string-as-post-parameters
+http://stackoverflow.com/questions/9084296/how-to-set-the-raw-body-in-jquery-ajax
+
+==spring==
+--spel(spring el)--
+http://norrisshelton.com/2014/01/27/how-to-use-spring-properties-values-in-a-jsp/
+http://forum.spring.io/forum/spring-projects/container/81541-compile-error-the-prefix-util-for-element-util-list-is-not-bound
+property file: http://stackoverflow.com/questions/7219097/spring-utilproperties-injection-via-annotations-into-a-bean
+property file: http://sethuramanmurali.wordpress.com/2013/08/18/spel-spring-expression-language/
+property file: http://kodejava.org/how-do-i-read-a-value-from-properties-file-using-spring-el/
+
+--annotation vs. xml configured beans--
+http://stackoverflow.com/questions/12154968/using-both-annotation-and-xml-config-on-one-instance-bean
+
+--property file,MessageSource,resource file--
+http://stackoverflow.com/questions/11150869/resourcebundle-not-found-for-messagesource-when-placed-inside-a-folder
+MessageSource locale: http://www.javablog.fr/spring-internationalization-with-message-source.html
+MessageSource: http://www.mkyong.com/spring/spring-resource-bundle-with-resourcebundlemessagesource-example/
+http://stackoverflow.com/questions/8608077/load-xml-file-in-spring
+
+--rest--
+http://www.concretepage.com/spring-4/spring-4-rest-web-service-json-example-tomcat
+http://www.mkyong.com/spring-mvc/spring-3-rest-hello-world-example/
+
+http://spring.io/guides/gs/rest-service-cors/
+http://spring.io/guides/gs/spring-boot/
+http://spring.io/guides/gs/consuming-rest-jquery/
+http://spring.io/guides
+
+--web.xml alternative since 3.1--
+http://www.intertech.com/Blog/how-to-use-springs-webapplicationinitializer/
+http://kielczewski.eu/2013/11/spring-mvc-without-web-xml-using-webapplicationinitializer/
+http://stefan-isele.logdown.com/posts/201646
+http://java.dzone.com/articles/spring-1
+
+http://docs.spring.io/spring/docs/4.0.0.RELEASE/spring-framework-reference/htmlsingle/#mvc-container-config
+
+--crud--
+! http://java.dzone.com/articles/crud-using-spring-mvc-40
+
+==spring mvc==
+http://spring.io/guides/gs/rest-service-cors/
+http://spring.io/guides/gs/consuming-rest-angularjs/
+http://www.programming-free.com/2014/07/crud-springmvc-restful-webservices-angularjs.html
+http://stackoverflow.com/questions/18557805/angularjs-with-spring-mvc
+http://www.javabeat.net/spring-mvc-angularjs-integration/
+http://nisargpathak.blogspot.com/2014/02/spring-mvc-with-jqgrid-simplified.html
+http://java.dzone.com/articles/ext-js-4-spring-mvc-crud
+
+vs. struts2: http://stackoverflow.com/questions/4270899/compare-spring-mvc-3-and-struts-2
+http://stackoverflow.com/questions/2883459/migrating-from-struts2-to-spring-mvc
+http://www.cygnet-infotech.com/struts-2-vs-springmvc-know-the-difference-choose-the-best-one-based-on-your-requirements
+
+--docs--
+http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html
+
+--request and response--
+http://www.javacodegeeks.com/2013/07/spring-mvc-requestbody-and-responsebody-demystified.html
+
+--serving html--
+http://stackoverflow.com/questions/15479213/how-to-serve-html-files-with-spring
+
+--import applicationContext.xml--
+http://docs.spring.io/spring/docs/3.2.x/spring-framework-reference/html/mvc.html#mvc-config-static-resources
+http://stackoverflow.com/questions/14313289/spring-security-3-1-3-autowired-not-work-when-using-webapplicationinitializer
+
+==struts==
+struts2 welcome page: http://stackoverflow.com/questions/39399/how-can-i-set-the-welcome-page-to-a-struts-action
+struts2 welcome page: http://javadeveloperjournal.blogspot.com/2011/05/creating-struts-2-welcome-page.html
+
+--file upload--
+http://www.mkyong.com/struts2/struts-2-file-upload-example/
+
+--action extensions--
+http://stackoverflow.com/questions/21002112/struts-2-3-ignores-wildcard-actions
+http://readlist.com/lists/struts.apache.org/user/16/81054.html
+http://stackoverflow.com/questions/17674387/how-to-use-wildcard-in-struts2-action-name-in-xml-file
+
+//google "struts2 static image servlet mapping" 
+
+--redirect with params--
+http://stackoverflow.com/questions/11006341/passing-parameters-in-url-while-redirecting-in-struts2
+
+==mybatis==
+--typehandler--
+http://mybatis.github.io/mybatis-3/configuration.html#typeHandlers
+[CN] http://m.oschina.net/blog/134199
+[CN] http://gubaojian.blog.163.com/blog/static/166179908201211433358600/
+
+--joins,N+1--
+http://mybatis.github.io/mybatis-3/sqlmap-xml.html
+http://java.dzone.com/articles/ibatis-mybatis-handling-joins
+
+--collection--
+http://stackoverflow.com/questions/13046625/mybatis-one-to-many-collection-mapping-always-have-one-default-entity
+http://stackoverflow.com/questions/9179890/mybatis-lists-of-primitive-types
+
+--config in spring--
+https://mybatis.github.io/spring/mappers.html
+http://stackoverflow.com/questions/19919540/mybatis-spring-with-java-config-and-xml-mappers
+http://www.codingpedia.org/ama/spring-mybatis-integration-example/
+
+==gradle==
+gradle setup in Ubuntu: http://www.code-republic.com/?p=48
+gradle setup in RHEL: https://gist.github.com/parzonka/9371885
+include non java files: http://gradle.1045684.n5.nabble.com/Copy-non-java-files-into-the-target-directory-td1432058.html
+jdk and JAVA_HOME bug!!!: http://stackoverflow.com/questions/22307516/gradle-finds-wrong-java-home-even-though-its-correctly-set
+jdk: http://stackoverflow.com/questions/20715586/ubuntu-cannot-find-system-java-compiler-ensure-that-you-have-installed-a-jdk-n
+execute linux shell script: http://forums.gradle.org/gradle/topics/how_to_execute_shell_command_source_or_dot_doestnt_work_with_exec
+
+custom build: http://stackoverflow.com/questions/26889162/gradle-custom-builds
+custom build: http://stackoverflow.com/questions/7459755/how-can-i-make-gradle-include-ftl-files-in-war-file
+
+--gradle eclipse--
+http://stackoverflow.com/questions/25333657/is-there-a-gradle-plugin-for-eclipse-luna
+https://github.com/spring-projects/eclipse-integration-gradle/
+http://marketplace.eclipse.org/content/gradle-integration-eclipse-44#.VB_gPGOMl40
+
+
+==maven==
+--mirror--
+http://uk.maven.org/maven2
+http://repo1.maven.org/maven2
+http://maven.antelink.com/content/repositories/central/
+
+--mirror setup--
+http://maven.oschina.net/help.html
+
+==comment system==
+[CN] http://duoshuo.com/
+
+==linux web access==
+http://linoxide.com/tools/web-remote-your-server/
+
+http://code.google.com/p/shellinabox/issues/detail?id=113
+
+I'll ask the silly question...
+
+Root login only works for ttys that are declared in the /etc/securetty file. Check your /var/log/secure file for a failed login message with the tty name.  However really you should not be logging in as root. Login as a regular user and then su or sudo to root.
+
+==misc==
+--property files for array like metadata--
+http://stackoverflow.com/questions/7015491/better-way-to-represent-array-in-java-properties-file
+http://stackoverflow.com/questions/12576156/reading-a-list-from-properties-file-and-load-with-spring-annotation-value
+http://stackoverflow.com/questions/2237924/spring-3-0-el-how-to-get-property-from-a-properties-file
+http://stackoverflow.com/questions/2041558/how-does-spring-3-expression-language-interact-with-property-placeholders
+
+
+==jquery==
+--selector--
+dynamically created elements: http://stackoverflow.com/questions/203198/event-binding-on-dynamically-created-elements
+future elements: http://stackoverflow.com/questions/13567162/jquery-on-for-future-elements-not-working
+event delegation: http://learn.jquery.com/events/event-delegation/
+
+==bootstrap==
+http://www.helloerik.com/the-subtle-magic-behind-why-the-bootstrap-3-grid-works
+http://bootstrapzero.com/
+
+==angularjs==
+--tutorial--
+https://docs.angularjs.org/tutorial/step_00
+
+--integrating bootstrap--
+http://angular-ui.github.io/bootstrap/
+
+--crud--
+http://stackoverflow.com/questions/22907587/angularjs-best-practice-rest-crud
+http://stackoverflow.com/questions/25075724/crud-in-angularjs
+! http://www.sitepoint.com/creating-crud-app-minutes-angulars-resource/
+http://draptik.github.io/blog/2013/07/28/restful-crud-with-angularjs/
+https://github.com/draptik/angulardemorestful
+
+--grid solutions--
+http://www.reddit.com/r/angularjs/comments/2fjxjs/best_library_for_handling_tables/
+http://stackoverflow.com/questions/21375073/best-way-to-represent-a-grid-or-table-in-angularjs-with-bootstrap-3
+https://www.linkedin.com/groups/Which-grid-do-you-use-4896676.S.5911122398274404352
+http://www.aspdotnet-suresh.com/2014/12/best-angularjs-grid-table-plugin-examples-with-demos.html
+http://www.angularcode.com/angularjs-datagrid-paging-sorting-filter-using-php-and-mysql/
+
+--augularjs + smart table + restangular--
+restangular: https://github.com/mgonto/restangular
+restangular: http://mgonto.github.io/restangular-talk/
+restangular: http://www.ng-newsletter.com/posts/restangular.html
+
+--smart table--
+! https://gist.github.com/dmackerman/8f25aba617cf4e883f9e
+http://lorenzofox3.github.io/smart-table-website/#examples-section
+pagination: http://plnkr.co/edit/ekwiNt?p=preview
+https://github.com/lorenzofox3/Smart-Table/issues/9
+https://www.mail-archive.com/angular@googlegroups.com/msg00039.html
+
+--routing--
+! http://scotch.io/tutorials/javascript/single-page-apps-with-angularjs-routing-and-templating
+http://liamkaufman.com/blog/2013/11/11/understanding-angularjs-directives-part2-ng-view/
+https://docs.angularjs.org/api/ngRoute/service/$route
+https://docs.angularjs.org/tutorial/step_07
+http://stackoverflow.com/questions/13681116/angularjs-dynamic-routing
+
+--parameters in property--
+http://stackoverflow.com/questions/17039926/adding-parameter-to-ng-click-function-inside-ng-repeat-seems-not-to-work
+
+--ajax--
+http://stackoverflow.com/questions/16389788/angularjs-update-view-after-model-loaded-from-ajax
+http://www.bennadel.com/blog/2612-using-the-http-service-in-angularjs-to-make-ajax-requests.htm
+http://www.ng-newsletter.com/posts/beginner2expert-data-binding.html
+http://stackoverflow.com/questions/12514882/angularjs-update-value-from-ajax-callback
+
+==java crud web framework==
+http://www.reddit.com/r/java/comments/19x9g5/is_the_spring_framework_still_relevant/
+http://zeroturnaround.com/rebellabs/the-curious-coders-java-web-frameworks-comparison-spring-mvc-grails-vaadin-gwt-wicket-play-struts-and-jsf/
+http://lightadmin.org/
+
+
+
+--extjs-based--
+http://flexblog.faratasystems.com/2012/04/18/generating-ext-js-and-java-crud-applications-with-cdb-part-1http://flexblog.faratasystems.com/2012/04/18/generating-ext-js-and-java-crud-applications-with-cdb-part-1 
+
+--backbone+bootstrap--
+http://coenraets.org/blog/2012/05/single-page-crud-application-with-backbone-js-and-twitter-bootstrap/
+
+--angularjs--
+http://stackoverflow.com/questions/17277076/mixing-spring-mvc-with-angular-js
+http://spring.io/guides/gs/consuming-rest-angularjs/
+http://stackoverflow.com/questions/13067607/angularjs-client-mvc-pattern
+http://stackoverflow.com/questions/18557805/angularjs-with-spring-mvc
+http://blog.jongallant.com/2013/05/angularjs-webapi-ef.html#.VIcR0XWSy1I
+
+==extjs==
+--grid--
+renderer: http://stackoverflow.com/questions/19907034/how-to-get-value-of-other-column-in-renderer-function-in-extjs
+
+
+==jqgrid==
+http://www.trirand.com/jqgridwiki/doku.php?id=wiki:custom_buttons
+
+--first grid--
+http://www.trirand.com/jqgridwiki/doku.php?id=wiki:first_grid
+
+--navigator--
+http://www.trirand.com/jqgridwiki/doku.php?id=wiki:navigator&s[]=button
+
+--buttons--
+http://www.trirand.com/jqgridwiki/doku.php?id=wiki:custom_buttons
+
+--grid--
+http://www.ok-soft-gmbh.com/jqGrid/MulticolumnEdit.htm
+http://www.trirand.com/blog/jqgrid/jqgrid.html
+
+--paging--
+http://stackoverflow.com/questions/9030302/jqgrid-client-side-sorting-with-server-side-paging-data-disappears
+
+--with jquery-ui--
+http://stackoverflow.com/questions/6073343/jqgrid-without-jqueryui
+
+--alternative--
+http://stackoverflow.com/questions/14564240/jqgrid-versus-kendo-grid
+http://stackoverflow.com/questions/8237778/any-technical-issue-why-i-shouldnt-use-jqqgrid
+
+==nvm==
+http://stackoverflow.com/questions/26476744/nvm-ls-remote-command-results-in-n-a
+
+==js cdn==
+https://github.com/cdnjs/cdnjs
+
+==tomcat==
+http://stackoverflow.com/questions/8088193/tomcat-randomly-shuts-down-with-an-abstractprotocol-pause-after-mild-usage
+
+==web stack==
+http://stackoverflow.com/questions/23199392/difference-between-mean-js-and-mean-io
+https://github.com/DaftMonk/generator-angular-fullstack
+http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/
+
+--ror--
+https://ihower.tw/rails4/firststep.html
+
+==backend stack==
+https://www.playframework.com/
+http://www.reactivemanifesto.org/
+
+==git==
+atlassian git get right: https://www.atlassian.com/git/?atl_medium=ACE&atl_camp=ACE-510&atl_source=bb
+
+==q==
+* sign in by username or email?
+* edit of team?
+
+==req==
+
+===鐩墠闇�鐨勮〃===
+TEAM(鏂藉伐闃�
+TEAMDISTRICT(鏂藉伐闃�鍦扮悊浣嶇疆鍏宠仈)
+TEAMTYPE(鏂藉伐闃�鎿呴暱鏂瑰悜鍏宠仈)
+TEAMSTYLES(鏂藉伐闃�涓撻暱椋庢牸鍏宠仈)
+TEAMBASEPACKAGES(鏂藉伐闃�鏈嶅姟鏀寔鍏宠仈)
+TEAMEXTRADESIGNS(鏂藉伐闃�娣卞寲璁捐鏀寔鍏宠仈)
+TEAMPRICERANGES(鏂藉伐闃�鎵挎帴浠蜂綅鍏宠仈)
+TTAGS(鏍囩)
+TEAMTTAGS(鏂藉伐闃�鏍囩鍏宠仈)
+DECORATION(璁捐)
+
+CUSTOMER(鐢ㄦ埛)
+WANTED(鐢ㄦ埛闇�眰)
+
+NEWS(鏂伴椈)	//鍙兘鍜岀敤鎴烽渶姹傛槸涓�釜琛�
+*GEOAREA(鍦扮悊鍖哄煙灞傜骇鍏崇郴)
+
+===娉�==
+绠＄悊鐣岄潰鏄惁闇�鍏朵粬妯″瀷寰呭畾(鎴戞壘涓嶅埌绠＄悊鐣岄潰浜�;
+浣跨敤鏂囦欢浣滀负涓氬姟鏁版嵁瀛樺偍灞傜殑鏂规:1)娌℃�涔堢敤杩囷紝涓�埇浠呭厓鏁版嵁瀛樺偍鏃剁敤鏂囦欢锛屽default.properties 2)澧炲姞澶嶆潅搴︼紝宸ヤ綔閲忎笉涓�畾灏戙�3)鍙淮鎶ゆ�鍙兘寰堝樊锛屾瘮濡傚鏄撳嚭閿欙紝鍚庢湡鏀瑰姩鍗囩骇楹荤儲;
+甯︽槦鍙风殑鏄笉娑夊強澧炲垹鏀圭殑妯″瀷锛屽彧娑夊強鏌ヨ鐨勶紝杩欑涓�埇宸ヤ綔閲忓緢灏忥紝鑰冭檻宸ヤ綔閲忔椂鍜屾秹鍙婂鍒犳敼鐨勬ā鍨嬩笉鏄竴涓被鍨�
+
+===
+1銆乀EAM(鏂藉伐闃�
+2銆乀EAMDISTRICT(鏂藉伐闃�鍦扮悊浣嶇疆鍏宠仈)
+3銆乀EAMTYPE(鏂藉伐闃�鎿呴暱鏂瑰悜鍏宠仈)
+4銆乀EAMPRICERANGES(鏂藉伐闃�鎵挎帴浠蜂綅鍏宠仈)
+5銆乀EAMBASEPACKAGES(鏂藉伐闃�鏈嶅姟鏀寔鍏宠仈)
+6銆丆USTOMER(鐢ㄦ埛)
+7銆乄ANTED(鐢ㄦ埛闇�眰)
+8銆併�+鏂板銆慍ONTACTRECORD(鑱旂郴璁板綍)
+
+
+1銆�鐢ㄦ埛鏈�鍒�鏀�鍗冲彲  锛�2銆佹柦宸ラ槦 闇�  鍒�鏀�  锛�3銆佸墠绔敤鎴疯仈绯昏褰曠殑鏄剧ず锛�   灏辫繖3涓唴瀹� 鍚庡彴  浣犵湅鐪� 鏈夋病鏈夐澶栫殑宸ヤ綔閲�   
+鍚庡彴閫昏緫鏈�鎴戝氨涓嶅尯鍒嗗鎴疯瑙掕繕鏄鐞嗗憳瑙嗚浜嗭紝涓や釜瑙嗚鐨勫姞璧锋潵绠椾竴濂楀鍒犳敼鏌ワ紝鍥犱负瀵瑰悗鍙颁竴鑸儏鍐典笉鍖哄垎杩欎釜)
+瀹㈡埛鐨勫鍒犳敼鏌ワ紱
+鏂藉伐闃熺殑澧炲垹鏀规煡(鐣ュ鏉傦紝甯︿笁鍥涗釜琛ㄧ殑鍏宠仈鏌ヨ,涓斿寘鍚笉鏄緢绠�崟鐨勬悳绱�锛�鐢ㄦ埛闇�眰鐨勫鏌�鏌ュ氨鏄柊闂�;
+鑱旂郴璁板綍鐨勫涓跺彂Email锛�
+
+
+闄勪欢鏄垜鏄ㄥぉ娴嬭瘯鏃跺仛鐨勬敼鍔紝鏀瑰姩姣旇緝澶ф墍浠ユ湭涓婁紶锛屽厛鍙戠粰浣犵湅涓嬶紟
+涓昏鏀瑰姩鏄�--1.澧炲姞浜嗗厓鏁版嵁鐨勮鍙� 2.鏀瑰姩浜嗙浉瀵硅矾寰勭殑寮曠敤(濡俲s,css鏂囦欢)
+娉細瑕佸畾浣嶉噸澶ф敼鍔ㄥ锛岃鍦╤tml婧愭枃浠朵腑鎼滅储"rev1204".
+
+==crash info==
+WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoader.clearReferencesJdbc The web application [/hdca] registered the JDBC driver [com.mysql.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered. 22-Dec-2014 08:47:07.706 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoader.clearReferencesThreads The web application [/hdca] appears to have started a thread named [MySQL Statement Cancellation Timer] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+
+==todo==
+links
+
+*** rollback support in team create transaction 
+
+豆瓣兼职 9:28:46 
+alert改下吧、、、添加成功、、、改成 提交成功？

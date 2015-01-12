@@ -1,0 +1,248 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="/hdca/css/base.min.css" rel="stylesheet" type="text/css">
+    <link href="/hdca/css/bases.css" rel="stylesheet" type="text/css">
+    <link href="/hdca/css/list.css" rel="stylesheet" type="text/css">
+    <link href="/hdca/css/responsive.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-1.7.2.min.js"></script> 
+    <title>施工队注册</title>
+    <!--[if lte IE 6]>
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/ie6.min.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/ie.css">
+    <![endif]-->
+</head>
+<body>
+    
+    <#include "/common/navbar.html" parse=true encoding="UTF-8"><!--end nav-->
+    
+    <div class="reg_teambackbox">
+        <img src="/hdca/img/reg_teambg.jpg" class="loginback">
+    </div>
+    
+    <div class="loginbox">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-10 col-md-offset-1">
+                    <div class="login">
+                        <div role="tabpanel" class="tab-pane" id="team">
+                                <form  class="form-horizontal" role="form" style="margin-top: 15px;"  name=creator action="/hdca/public/team/create" method="post" enctype="multipart/form-data">
+                                    <div class="form-group" style="height: 53px;">
+                                        <div class="col-sm-12">
+                                            <p class="point">
+                                                <span class="round r1">1</span>
+                                                <span class="round r2 active">2</span>
+                                                <span class="round r3">3</span>
+                                                <span class="line"></span>
+                                            </p>
+                                            <p class="word">
+                                                <span class="round r1">创建账号</span>
+                                                <span class="round r2 active">认证</span>
+                                                <span class="round r3">注册成功</span>
+                                                
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label" style="padding-top: 0px;">擅长方向</label>
+                                        <div class="col-sm-10">
+                                          
+                                          <!-- rev1204 start-->                             
+                                          <div class="checkbox checkcheck" style="padding-top: 0px;">
+						<#list msgsrc.getMessage("team.type.names").split(",") as x>
+						<label><input type="checkbox" id="blankCheckbox" name="team.types" value="${msgsrc.getMessage("team.type.values").split(",")[x_index]}">${x}</label>
+						</#list>
+                                          </div>
+                                          <!-- rev1204 end-->
+
+                                          
+                                          <!-- 
+                                  
+                                          <div class="checkbox checkcheck" style="padding-top: 0px;">
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">别墅</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">老房</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">新房</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">餐饮</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">休闲</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">校园</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">办公</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">其他</label>
+                                          </div>
+                                             -->
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label" style="padding-top: 0px;">服务支持</label>
+                                        <div class="col-sm-10">
+
+                                          <!-- rev1204 start-->                             
+                                          <div class="checkbox checkcheck" style="padding-top: 0px;">
+						<#list msgsrc.getMessage("team.basepackage.names").split(",") as x>
+						<label><input type="checkbox" id="blankCheckbox" name="team.basepackages" value="${msgsrc.getMessage("team.type.values").split(",")[x_index]}">${x}</label>
+						</#list>
+                                          </div>
+                                          <!-- rev1204 end-->
+
+
+                                          <!--
+                                          <div class="checkbox checkcheck" style="padding-top: 0px;">
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">营业执照认证</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">保证金缴纳</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">免费上门量房</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">免费预约</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">推荐公司</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">金牌施工队</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">本平台特惠</label>
+                                          </div>
+                                          -->
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label" style="padding-top: 0px;">深化预算</label>
+                                        <div class="col-sm-10">
+                                          <div class="checkbox checkcheck" style="padding-top: 0px;">
+                                          
+                                          <#list msgsrc.getMessage("team.offertype.names").split(",") as x>
+                        				  <label class="radio-inline"><input type="radio" name="team.offertype" value="${msgsrc.getMessage("team.type.values").split(",")[x_index]}">${x}</label>
+										  </#list>
+                                          
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label" style="padding-top: 0px;">合同规范</label>
+                                        <div class="col-sm-10">
+                                          <input type="text" class="form-control" id="inputEmail3" name="team.contractdesc" placeholder="合同类型">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label" style="padding-top: 0px;">承接价位</label>
+                                        <div class="col-sm-10">
+
+                                          <!-- rev1204 start-->   <!-- rev1204 start-->                             
+                                          <!--<div class="checkbox checkcheck" style="padding-top: 0px;">
+						<#list msgsrc.getMessage("team.type.names").split(",") as x>
+						<label><input type="checkbox" id="blankCheckbox" name="team.types" value="${msgsrc.getMessage("team.type.values").split(",")[x_index]}">${x}</label>
+						</#list>
+                                          </div>-->
+                                          <!-- rev1204 end-->                          
+                                          <div class="checkbox checkcheck" style="padding-top: 0px;">
+						<#list msgsrc.getMessage("team.pricerange.names").split(",") as x>
+						<label><input type="checkbox" id="blankCheckbox" name="team.priceranges" value="${msgsrc.getMessage("team.pricerange.values").split(",")[x_index]}">${x}</label>
+						</#list>
+                                          </div>
+                                          <!-- rev1204 end-->
+
+<!--
+                                          <div class="checkbox checkcheck" style="padding-top: 0px;">
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">3万以下</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">3-5万</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">5-8万</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">8-12万</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">12-18万</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">18-30万</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">30-100万</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">100-300万</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">300万以上</label>
+                                          </div>
+-->
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label" style="padding-top: 0px;">地址</label>
+                                        <div class="col-sm-10">
+                                          <input type="text" class="form-control" id="inputEmail3" name="team.address" placeholder="地址">
+                                        </div>
+                                    </div>
+				    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label" style="padding-top: 0px;">上传头像</label>
+                                        <div class="col-sm-10">
+                                          <input type="file" id="exampleInputFile" name="logo">
+					    <p class="help-block" style="color:#fff;">请上传尺寸大小为350*350px以上正方形且格式为jpg的头像</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label" style="padding-top: 0px;">服务区域</label>
+                                        <div class="col-sm-10">
+
+
+                                          <!-- rev1204 start-->                             
+                                          <div class="checkbox checkcheck" style="padding-top: 0px;">
+						
+						<#list gaservice.getGeoAreaByDirectParent(team.getCityareaid()) as x>
+						<label><input type="checkbox" id="blankCheckbox" name="team.districtareas" value="${x.getAreaid()}">${x.getName()}</label>
+						</#list>
+						<!-- 注: 52是系统中北京的编号，测试用 -->
+                                          </div>
+                                          <!-- rev1204 end-->
+
+<!--
+                                          <div class="checkbox checkcheck" style="padding-top: 0px;">
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">东城</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">西城</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">崇文</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">宣武</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">朝阳</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">丰台</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">石景山</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">海淀</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">门头沟</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">房山</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">通州</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">顺义</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">昌平</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">大兴</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">平谷</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">怀柔</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">密云</label>
+                                            <label><input type="checkbox" id="blankCheckbox" value="option1">延庆</label>
+                                          </div>
+-->
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label" style="padding-top: 0px;">特色服务</label>
+                                        <div class="col-sm-10">
+                                          <input type="text" class="form-control" name="team.extrapackage" id="inputEmail3" placeholder="特色服务">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label" style="padding-top: 0px;">施工队简介</label>
+                                        <div class="col-sm-10">
+                                          <textarea class="form-control" rows="3" name="team.comment" placeholder="施工队简介"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label" style="padding-top: 0px;"></label>
+                                        <div class="col-sm-5">
+                                          <button type="submit" class="btn btn-primary btn-lg btn-block">提交认证</button>
+                                        </div>
+                                        <div class="col-sm-5">
+                                          <p>工作人员将会与您联系并认证您的施工队资质，请等待3-7个工作日。</p>
+                                          <!-- rev1204 start-->
+                                          <input type="hidden" name="team.name" value="${team.getName()}"/>
+                                          <input type="hidden" name="team.contactname" value="${team.getContactname()}"/>
+                                          <input type="hidden" name="team.mobile" value="${team.getMobile()}"/>
+                                          <!-- rev1204 end-->
+                                        </div>
+                                    </div>
+                                    
+                                </form>
+                            </div><!--end team tabs!-->
+                        </div><!--end tabs!-->
+                    </div><!--end login!-->
+                </div><!--end  small responsive div!-->
+            </div><!--end  big responsive div!-->
+        </div><!--end container!-->
+    </div><!--end loginbox!-->
+      
+<script type="text/javascript" src="js/base.min.js"></script>
+
+<!--[if lte IE 6]>
+  <script type="text/javascript" src="js/ie.js"></script>
+  <![endif]-->
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="${webroot}/css/base.min.css" rel="stylesheet" type="text/css">
+    <link href="${webroot}/css/bases.css" rel="stylesheet" type="text/css">
+    <link href="${webroot}/css/list.css" rel="stylesheet" type="text/css">
+    <link href="${webroot}/css/responsive.css" rel="stylesheet" type="text/css">
+    <script src="${webroot}/js/jquery-1.7.2.min.js"></script> 
+    <title>登陆</title>
+    <!--[if lte IE 6]>
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/ie6.min.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/ie.css">
+    <![endif]-->
+</head>
+<body>
+    
+    <#include "/common/navbar.html" parse=true encoding="UTF-8"><!--end nav-->
+    
+    <div class="loginbackbox">
+        <img src="${webroot}/img/loginbg.jpg" class="loginback">
+    </div>
+    
+    <div class="loginbox">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-4 col-md-offset-8">
+                    <div class="login">
+                        <form role="form" action="${webroot}/public/customer/login">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">邮箱地址</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" name="customer.email" placeholder="邮箱地址">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">密码</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" name="customer.password" placeholder="密码">
+                                <a class="help-block" href="/hdca/public/customer/torequestpasswordreset">忘记登陆密码？</a>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> 下次自动登陆
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">登陆</button>
+                            <div class="form-group">
+                                <a class="help-block" href="registered.html" style="color:#FFBC01;">还没有账号？立即注册</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer" style="background: none;color: #fff;">
+        <div class="container">
+            footer
+            
+        </div>
+    </div><!--end footer-->
+    
+<script type="text/javascript" src="${webroot}/js/base.min.js"></script>
+<!--[if lte IE 6]>
+  <script type="text/javascript" src="js/ie.js"></script>
+  <![endif]-->
+</body>
+</html>

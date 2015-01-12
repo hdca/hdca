@@ -1,0 +1,336 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="css/base.min.css" rel="stylesheet" type="text/css">
+    <link href="css/back.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-1.7.2.min.js"></script> 
+    <title>施工队-后台管理</title>
+</head>
+<body>
+
+    <div class="top">
+        <div class="container">
+            <ul class="nav nav-pills" role="tablist">
+                <li role="presentation" class="active"><a a href="#user" role="tab" data-toggle="tab">用户资料管理</a></li>
+                <li role="presentation"><a a href="#team" role="tab" data-toggle="tab">施工队资料管理</a></li>
+                <li role="presentation"><a a href="#info" role="tab" data-toggle="tab">信息管理</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="contain">
+        <div class="container">
+            <div class="tab-content">
+                <div class="tab-pane active" id="user">
+                    
+                    <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>姓名</th>
+                        <th>密码</th>
+                        <th>所在城市</th>
+                        <th>所在区域</th>
+                        <th>邮箱</th>
+                        <th>手机</th>
+                        <th>编辑</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>Otto</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        <td>
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#edituser">编辑</button>
+                            <button type="button" class="btn btn-danger">删除</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                </table>
+                <div class="modal fade" id="edituser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">用户信息编辑</h4>
+                                </div>
+                                <div class="modal-body">
+                                <form class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label">用户姓名</label>
+                                        <div class="col-sm-6">
+                                            <input type="email" class="form-control" id="inputEmail3" placeholder="xxx">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputPassword3" class="col-sm-2 control-label">用户密码</label>
+                                        <div class="col-sm-6">
+                                            <input type="password" class="form-control" id="inputPassword3" placeholder="XXXXX">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label">所在城市</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control" id="inputEmail3" placeholder="城市地区">
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label">所在区域</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control" id="inputEmail3" placeholder="城市地区">
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label">邮箱</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control" id="inputEmail3" placeholder="邮箱">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label">手机</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control" id="inputEmail3" placeholder="手机">
+                                        </div>
+                                    </div>
+                                </form>    
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                    <button type="button" class="btn btn-primary">确认</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                <div class="tab-pane" id="team">
+                    <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>施工队名称</th>
+                        <th>联系人</th>
+                        <th>手机</th>
+                        <th>所在城市及区域</th>
+                        <th>擅长方向</th>
+                        <th>深化预算</th>
+                        <th>合同规范</th>
+                        <th>承接价位</th>
+                        <th>地址</th>
+                        <th>特色服务</th>
+                        <th>施工队简介</th>
+                        <th>审核状态</th>
+                        <th>编辑</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>北京市胜华辉煌施工队</td>
+                        <td>刘先生</td>
+                        <td>13810231234</td>
+                        <td>北京市海淀区</td>
+                        <td>别墅 ，新房，老房</td>
+                        <td>全面总报价</td>
+                        <td>北京市工商局规范合同</td>
+                        <td>0-3万，3-5万，5-8万，8-12万</td>
+                        <td>北京市海淀区南3街5号xx大厦101号</td>
+                        <td>品质保证</td>
+                        <td>简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</td>
+                        <td>已通过</td>
+                        <td>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#teamaudit">审核</button>
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editteam">编辑</button>
+                            <button type="button" class="btn btn-danger">删除</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                    <div class="modal fade" id="teamaudit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">施工队审核</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <select class="form-control">
+                                        <option>等待审核（默认）</option>
+                                        <option>通过审核（展示到前台）</option>
+                                        <option>拒绝审核（隐藏在后台）</option>
+                                    </select>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                    <button type="button" class="btn btn-primary">确认</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="modal fade" id="editteam" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title" id="myModalLabel">编辑施工队</h4>
+                            </div><!--end modal-header-->
+                            <div class="modal-body">
+                                <form class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">施工队名称</label>
+                                        <div class="col-sm-6">
+                                            <input type="email" class="form-control" id="inputEmail3" placeholder="请输入施工队名称">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">施工队头像</label>
+                                        <div class="col-sm-6">
+                                            <label for="exampleInputFile">图片上传</label>
+                                            <input type="file" id="exampleInputFile">
+                                            <p class="help-block">上传头像不能超过200k</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">施工队联系人</label>
+                                        <div class="col-sm-6">
+                                            <input type="email" class="form-control" id="inputEmail3" placeholder="请输入施工队联系人">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">联系人手机</label>
+                                        <div class="col-sm-9">
+                                            <input type="email" class="form-control" id="inputEmail3" placeholder="联系人手机">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">城市和区域</label>
+                                        <div class="col-sm-9">
+                                            <input type="email" class="form-control" id="inputEmail3" placeholder="城市和区域">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">擅长方向</label>
+                                        <div class="col-sm-9">
+                                            <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox1" value="option1"> 别墅</label>
+                                            <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox2" value="option2"> 新房</label>
+                                            <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox3" value="option3"> 老房</label>
+                                            <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox1" value="option1"> 餐饮</label>
+                                            <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox2" value="option2"> 休闲娱乐</label>
+                                            <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox3" value="option3"> 校园</label>
+                                            <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox1" value="option1"> 办公</label>
+                                            <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox2" value="option2"> 其他</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">深化预算</label>
+                                        <div class="col-sm-9">
+                                            <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox1" value="option1"> 全面总报价</label>
+                                            <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox2" value="option2"> 全面细节报价</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">合同规范</label>
+                                        <div class="col-sm-9">
+                                            <input type="email" class="form-control" id="inputEmail3" placeholder="合同规范">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">承接价位</label>
+                                        <div class="col-sm-9">
+                                            <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox1" value="option1"> 0-3万</label>
+                                            <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox2" value="option2"> 3-5万</label>
+                                            <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox3" value="option3"> 5-8万</label>
+                                            <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox1" value="option1"> 8-12万</label>
+                                            <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox2" value="option2"> 12-18万</label>
+                                            <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox3" value="option3"> 18-30万</label>
+                                            <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox1" value="option1"> 30-100万</label>
+                                            <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox2" value="option2"> 100-300万</label>
+                                            <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox2" value="option2"> 300万以上</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">地址</label>
+                                        <div class="col-sm-9">
+                                            <input type="email" class="form-control" id="inputEmail3" placeholder="地址">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">特色服务</label>
+                                        <div class="col-sm-9">
+                                            <input type="email" class="form-control" id="inputEmail3" placeholder="品质规范">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">施工队简介</label>
+                                        <div class="col-sm-9">
+                                            <input type="email" class="form-control" id="inputEmail3" placeholder="简介" row=3>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">备注</label>
+                                        <div class="col-sm-9">
+                                            <input type="email" class="form-control" id="inputEmail3" placeholder="备注">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">审核状态</label>
+                                        <div class="col-sm-5">
+                                            <select class="form-control">
+                                                <option>等待审核（默认）</option>
+                                                <option>通过审核（展示到前台）</option>
+                                                <option>拒绝审核（隐藏在后台）</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>  
+                            </div><!--end modal-body-->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                <button type="button" class="btn btn-primary">确认</button>
+                            </div><!--end modal-footer-->
+                        </div><!--end modal-content-->
+                    </div><!--end modal-dialog-->
+                </div>    
+                
+                <div class="tab-pane" id="info">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4>用户联系信息</h4>
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>时间</th>
+                                        <th>用户</th>
+                                        <th>用户联系方式</th>
+                                        <th>联系的施工队</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2014-10-22</td>
+                                        <td>刘XX</td>
+                                        <td>13801234567</td>
+                                        <td>北京XX装饰</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div><!--end info-->
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        
+    </div>
+    
+<script type="text/javascript" src="js/base.min.js"></script>
+</body>
+</html>

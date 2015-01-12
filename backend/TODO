@@ -1,0 +1,18 @@
+==后端==
+用户注册
+用户注册时发送验证码
+用户登录
+施工队模糊搜索(名称、备注)
+施工队无条件的数据页
+预约
+预约和发布需求中的邮件发送
+
+change namelike or not when switching district
+wrong: displayed total pages, item per page
+wrong: detail--when address,comment etc. empty!
+
+
+==前端==
+结果动作(提示和跳转)：发布需求成功后、施工队/用户注册成功后
+发布需求页的省市列表的动态生成(同施工队注册页)
+管理视角//待明确
